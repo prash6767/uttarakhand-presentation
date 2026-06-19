@@ -47,8 +47,8 @@ function attemptLogin(password) {
     socket.disconnect();
   }
 
-  // Connect to Socket.io
-  socket = io();
+  // Connect to Socket.io (enforce websocket transport for hosting compatibility)
+  socket = io({ transports: ['websocket'] });
 
   socket.on('connect', () => {
     // Attempt authentication

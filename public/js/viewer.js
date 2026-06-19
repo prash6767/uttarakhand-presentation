@@ -1,7 +1,7 @@
 // Viewer Presentation JavaScript
 
-// Connect to Socket.io server (automatically resolves to the correct host/port)
-const socket = io();
+// Connect to Socket.io server (enforce websocket transport for hosting compatibility)
+const socket = io({ transports: ['websocket'] });
 
 // DOM Elements
 const syncLoader = document.getElementById('sync-loader');
