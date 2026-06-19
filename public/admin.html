@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uttarakhand Presentation - Presenter Console</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <style>
+    /* Inline adjustment to make preview iframe fit container perfectly */
+    #preview-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Password Authentication Dialog Overlay -->
+  <div id="auth-overlay" class="auth-overlay hidden">
+    <div class="auth-card">
+      <div class="auth-icon">🔑</div>
+      <h2 class="auth-title">Presenter Sign In</h2>
+      <p class="auth-desc">Please enter the security password to control the live presentation synchronization.</p>
+      
+      <form id="auth-form" class="auth-form">
+        <input 
+          type="password" 
+          id="auth-input" 
+          class="auth-input" 
+          placeholder="Password" 
+          required 
+          autocomplete="current-password"
+        >
+        <div id="auth-error" class="auth-error"></div>
+        <button type="submit" id="auth-btn" class="admin-btn">Authenticate</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Admin Workspace Layout -->
+  <div class="admin-layout">
+    
+    <!-- Presenter Sidebar Controls Panel -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Presenter Console</div>
+        <div class="sidebar-desc">Control synchronized slides globally</div>
+      </div>
+
+      <div class="controls-container">
+        
+        <!-- Next / Prev controls -->
+        <div class="admin-select-wrapper">
+          <span class="admin-label">Manual Step Navigation</span>
+          <div class="btn-group">
+            <button id="btn-prev" class="admin-btn" disabled>◀ Previous</button>
+            <button id="btn-next" class="admin-btn" disabled>Next ▶</button>
+          </div>
+        </div>
+
+        <!-- Jump to section dropdown -->
+        <div class="admin-select-wrapper">
+          <label for="select-jump" class="admin-label">Jump to Section</label>
+          <select id="select-jump" class="admin-select">
+            <!-- Loaded dynamically -->
+          </select>
+        </div>
+
+        <!-- Section List Navigation Grid -->
+        <div class="admin-select-wrapper">
+          <span class="admin-label">Section Outline Map</span>
+          <div id="slide-list-nav" class="slide-list-nav">
+            <!-- Loaded dynamically -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer action controls -->
+      <div class="sidebar-footer">
+        <button id="logout-btn" class="admin-btn logout-btn">🔒 Close Session</button>
+      </div>
+    </aside>
+
+    <!-- WYSIWYG Real-time Viewer Preview Frame -->
+    <main class="admin-preview">
+      <div class="preview-badge">Live Presenter Preview</div>
+      <iframe id="preview-iframe" src="about:blank"></iframe>
+    </main>
+
+  </div>
+
+  <!-- Socket.IO library & Admin JavaScript -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

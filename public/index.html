@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uttarakhand Presentation - Real-time Broadcast</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Sync Loader Overlay for Late-Joiners -->
+  <div id="sync-loader" class="sync-loader">
+    <div class="spinner"></div>
+    <div class="sync-text">Synchronizing with Presenter...</div>
+  </div>
+
+  <!-- Ambient Backdrop Glow -->
+  <div id="bg-ambient" class="bg-ambient"></div>
+
+  <!-- Main Presentation Container -->
+  <main id="app">
+    
+    <!-- Branding Header -->
+    <div class="brand-watermark">
+      <div class="logo-icon">🏔️</div>
+      <div class="logo-text">Uttarakhand</div>
+    </div>
+
+    <!-- Live Status Indicator -->
+    <div class="connection-status">
+      <div id="status-dot" class="status-dot connecting"></div>
+      <span id="status-text">Connecting...</span>
+    </div>
+
+    <!-- Presentation Content Slide Grid -->
+    <div id="slide-container" class="slide-container">
+      
+      <!-- Content Details Left Pane -->
+      <section class="content-pane">
+        <h4 id="slide-subtitle" class="slide-subtitle">Loading...</h4>
+        <h1 id="slide-title" class="slide-title">Preparing Presentation</h1>
+        <p id="slide-description" class="slide-description">Connecting to the live session. Please wait...</p>
+        
+        <!-- Facts Grid -->
+        <div id="facts-grid" class="facts-grid">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- Details Bullet List -->
+        <ul id="details-list" class="details-list">
+          <!-- Populated dynamically -->
+        </ul>
+      </section>
+
+      <!-- Media Display Right Pane -->
+      <section class="media-pane">
+        <img id="slide-image" class="slide-image" src="" alt="Presentation Loading">
+        <div class="media-overlay"></div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Socket.IO library & Viewer JavaScript -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/viewer.js"></script>
+</body>
+</html>
