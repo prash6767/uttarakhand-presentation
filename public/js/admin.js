@@ -110,6 +110,46 @@ function setupDashboard() {
     }
   };
 
+  // Video playback controls integration
+  const btnVideoPlay = document.getElementById('btn-video-play');
+  const btnVideoPause = document.getElementById('btn-video-pause');
+  const videoSeek = document.getElementById('video-seek');
+
+  btnVideoPlay.onclick = () => {
+    try {
+      const iframeDoc = previewIframe.contentDocument;
+      const videoEl = iframeDoc ? iframeDoc.getElementById('slide-video') : null;
+      const currentTime = videoEl ? videoEl.currentTime : 0;
+      socket.emit('video-control', { action: 'play', currentTime: currentTime });
+    } catch (e) {
+      socket.emit('video-control', { action: 'play', currentTime: 0 });
+    }
+  };
+
+  btnVideoPause.onclick = () => {
+    try {
+      const iframeDoc = previewIframe.contentDocument;
+      const videoEl = iframeDoc ? iframeDoc.getElementById('slide-video') : null;
+      const currentTime = videoEl ? videoEl.currentTime : 0;
+      socket.emit('video-control', { action: 'pause', currentTime: currentTime });
+    } catch (e) {
+      socket.emit('video-control', { action: 'pause', currentTime: 0 });
+    }
+  };
+
+  videoSeek.oninput = (e) => {
+    try {
+      const iframeDoc = previewIframe.contentDocument;
+      const videoEl = iframeDoc ? iframeDoc.getElementById('slide-video') : null;
+      if (videoEl && !isNaN(videoEl.duration)) {
+        const targetTime = (e.target.value / 100) * videoEl.duration;
+        socket.emit('video-control', { action: 'seek', currentTime: targetTime });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   logoutBtn.onclick = () => {
     sessionStorage.removeItem('admin_password');
     window.location.reload();
@@ -178,4 +218,70 @@ function updateControlsState() {
   if (activeItem) {
     activeItem.classList.add('active');
   }
+
+  // Toggle Video Controls display
+  const videoControlsWrapper = document.getElementById('video-controls-wrapper');
+  if (videoControlsWrapper) {
+    const currentSlide = slidesOutline[currentSlideIndex];
+    if (currentSlide && currentSlide.isVideo) {
+      videoControlsWrapper.classList.remove('hidden');
+      startVideoTelemetry();
+    } else {
+      videoControlsWrapper.classList.add('hidden');
+      stopVideoTelemetry();
+    }
+  }
+}
+
+// Telemetry Polling variables and functions
+let telemetryInterval = null;
+
+function startVideoTelemetry() {
+  if (telemetryInterval) clearInterval(telemetryInterval);
+  
+  const videoSeek = document.getElementById('video-seek');
+  const videoTime = document.getElementById('video-time');
+  const btnVideoPlay = document.getElementById('btn-video-play');
+  const btnVideoPause = document.getElementById('btn-video-pause');
+
+  telemetryInterval = setInterval(() => {
+    try {
+      const iframeWin = previewIframe.contentWindow;
+      const iframeDoc = previewIframe.contentDocument || iframeWin.document;
+      const videoEl = iframeDoc ? iframeDoc.getElementById('slide-video') : null;
+
+      if (videoEl && !isNaN(videoEl.duration)) {
+        // Update seek slider value (percentage)
+        const pct = (videoEl.currentTime / videoEl.duration) * 100;
+        videoSeek.value = pct;
+        
+        // Update time text
+        videoTime.textContent = `${formatTime(videoEl.currentTime)} / ${formatTime(videoEl.duration)}`;
+        
+        // Update play/pause button active state
+        if (videoEl.paused) {
+          btnVideoPlay.classList.remove('active-play');
+          btnVideoPause.classList.add('active-pause');
+        } else {
+          btnVideoPlay.classList.add('active-play');
+          btnVideoPause.classList.remove('active-pause');
+        }
+      }
+    } catch (e) {
+      console.warn("Telemetry error:", e);
+    }
+  }, 250);
+}
+
+function stopVideoTelemetry() {
+  if (telemetryInterval) {
+    clearInterval(telemetryInterval);
+    telemetryInterval = null;
+  }
+}
+
+function formatTime(secs) {
+  const m = Math.floor(secs / 60);
+  const s = Math.floor(secs % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
 }

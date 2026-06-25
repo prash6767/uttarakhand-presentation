@@ -1,3 +1,6 @@
 node_modules/
 .env
 .DS_Store
+docx_content.txt
+public/assets/images/extracted/
+Store Info In Me!!.docx

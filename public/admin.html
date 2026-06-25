@@ -62,6 +62,19 @@
           </div>
         </div>
 
+        <!-- Video Sync controls -->
+        <div id="video-controls-wrapper" class="admin-select-wrapper hidden">
+          <span class="admin-label">Video Playback Controls</span>
+          <div class="btn-group">
+            <button id="btn-video-play" class="admin-btn">▶ Play</button>
+            <button id="btn-video-pause" class="admin-btn">⏸ Pause</button>
+          </div>
+          <div class="video-seek-container" style="margin-top: 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+            <input type="range" id="video-seek" min="0" max="100" value="0" style="flex: 1; cursor: pointer; accent-color: var(--accent-color);">
+            <span id="video-time" class="admin-label" style="margin-bottom: 0; font-family: monospace; white-space: nowrap;">0:00 / 0:00</span>
+          </div>
+        </div>
+
         <!-- Jump to section dropdown -->
         <div class="admin-select-wrapper">
           <label for="select-jump" class="admin-label">Jump to Section</label>

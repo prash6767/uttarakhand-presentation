@@ -20,6 +20,7 @@ const statusDot = document.getElementById('status-dot');
 const statusText = document.getElementById('status-text');
 
 let isInitialLoad = true;
+let currentVideoState = null;
 
 // Connection Handlers
 socket.on('connect', () => {
@@ -34,6 +35,12 @@ socket.on('disconnect', () => {
 
 socket.on('connect_error', () => {
   updateStatus('connecting');
+});
+
+// Listen for video state updates from the server
+socket.on('video-state-update', (state) => {
+  currentVideoState = state;
+  syncVideo(state);
 });
 
 // Update the visual status dot
@@ -87,16 +94,16 @@ function renderSlide(slide) {
 
   // Update background gradient
   let gradientStr = 'linear-gradient(135deg, #090e11, #0c151b)';
-  if (slide.id === 'welcome') {
-    gradientStr = 'linear-gradient(135deg, #090e11, #1e130c)'; // Orange hue
-  } else if (slide.id === 'peaks') {
-    gradientStr = 'linear-gradient(135deg, #090e11, #0b1a24)'; // Blue hue
+  if (slide.id === 'intro-video' || slide.id === 'welcome') {
+    gradientStr = 'linear-gradient(135deg, #090e11, #1e130c)'; // Orange/Warm hue
+  } else if (slide.id === 'unesco-sites') {
+    gradientStr = 'linear-gradient(135deg, #090e11, #0c1e14)'; // Green hue
   } else if (slide.id === 'spirituality') {
     gradientStr = 'linear-gradient(135deg, #090e11, #241d06)'; // Gold hue
-  } else if (slide.id === 'culture') {
-    gradientStr = 'linear-gradient(135deg, #090e11, #180c22)'; // Purple hue
-  } else if (slide.id === 'wildlife') {
-    gradientStr = 'linear-gradient(135deg, #090e11, #0c1e14)'; // Green hue
+  } else if (slide.id === 'ancient-temples') {
+    gradientStr = 'linear-gradient(135deg, #090e11, #0b1a24)'; // Blue hue
+  } else if (slide.id === 'festivals' || slide.id === 'arts-crafts') {
+    gradientStr = 'linear-gradient(135deg, #090e11, #180c22)'; // Purple/Indigo hue
   } else if (slide.id === 'adventure') {
     gradientStr = 'linear-gradient(135deg, #090e11, #220e0c)'; // Red hue
   }
@@ -106,6 +113,13 @@ function renderSlide(slide) {
   subtitleEl.textContent = slide.subtitle;
   titleEl.textContent = slide.title;
   descriptionEl.textContent = slide.description;
+
+  // Toggle layout class for full-screen video
+  if (slide.video) {
+    slideContainer.classList.add('full-media');
+  } else {
+    slideContainer.classList.remove('full-media');
+  }
 
   // Facts Grid
   factsGridEl.innerHTML = '';
@@ -138,23 +152,84 @@ function renderSlide(slide) {
     });
   }
 
-  // Slide Image
-  // Remove existing image first to reset animations
-  const parent = slideImageEl.parentElement;
+  // Slide Media (Image or Video)
+  // Remove existing media first to reset animations/state
+  const parent = slideImageEl ? slideImageEl.parentElement : document.querySelector('.media-pane');
   parent.innerHTML = '';
   
-  const newImg = document.createElement('img');
-  newImg.id = 'slide-image';
-  newImg.className = 'slide-image';
-  newImg.alt = slide.title;
-  newImg.src = slide.image;
+  if (slide.video) {
+    const videoEl = document.createElement('video');
+    videoEl.id = 'slide-video';
+    videoEl.className = 'slide-image';
+    videoEl.src = slide.video;
+    videoEl.playsInline = true;
+    videoEl.muted = true; // Muted autoplay succeeds without user interaction
+    videoEl.controls = false;
+    
+    parent.appendChild(videoEl);
+    slideImageEl = videoEl;
+
+    // Sync immediately if video state is already active
+    if (currentVideoState) {
+      syncVideo(currentVideoState);
+    }
+  } else {
+    const newImg = document.createElement('img');
+    newImg.id = 'slide-image';
+    newImg.className = 'slide-image';
+    newImg.alt = slide.title;
+    newImg.src = slide.image;
+    
+    parent.appendChild(newImg);
+    slideImageEl = newImg;
+  }
   
   const overlay = document.createElement('div');
   overlay.className = 'media-overlay';
-  
-  parent.appendChild(newImg);
   parent.appendChild(overlay);
-  
-  // Re-assign reference
-  slideImageEl = newImg;
+
+  // Render UCEED GK Highlight
+  const uceedGkEl = document.getElementById('uceed-gk-box');
+  if (uceedGkEl) {
+    if (slide.uceedGK) {
+      uceedGkEl.classList.remove('hidden');
+      uceedGkEl.innerHTML = slide.uceedGK;
+    } else {
+      uceedGkEl.classList.add('hidden');
+    }
+  }
 }
+
+// Synchronize video playback state
+function syncVideo(state) {
+  const videoEl = document.getElementById('slide-video');
+  if (!videoEl) return;
+
+  if (state.playing) {
+    let targetTime = state.currentTime;
+    if (state.lastUpdated) {
+      const drift = (Date.now() - state.lastUpdated) / 1000;
+      targetTime += drift;
+    }
+    
+    // Avoid resetting currentTime continuously for minor drifts
+    if (Math.abs(videoEl.currentTime - targetTime) > 1.2) {
+      videoEl.currentTime = targetTime;
+    }
+    
+    if (videoEl.paused) {
+      videoEl.play().catch(err => {
+        console.warn("Autoplay play prevented:", err);
+      });
+    }
+  } else {
+    if (!videoEl.paused) {
+      videoEl.pause();
+    }
+    if (Math.abs(videoEl.currentTime - state.currentTime) > 0.5) {
+      videoEl.currentTime = state.currentTime;
+    }
+  }
+}
+
+
