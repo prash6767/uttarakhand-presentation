@@ -93,19 +93,19 @@ function renderSlide(slide) {
   document.documentElement.style.setProperty('--accent-glow', `rgba(${r}, ${g}, ${b}, 0.15)`);
 
   // Update background gradient
-  let gradientStr = 'linear-gradient(135deg, #100d0b, #1b1613)';
+  let gradientStr = 'linear-gradient(135deg, #f4eae0, #eae0d0)';
   if (slide.id === 'intro-video' || slide.id === 'welcome') {
-    gradientStr = 'linear-gradient(135deg, #100d0b, #2b1c19)'; // Earthen Terracotta hue
+    gradientStr = 'linear-gradient(135deg, #f4eae0, #edd9cb)'; // Earthen Terracotta/Warm hue
   } else if (slide.id === 'unesco-sites') {
-    gradientStr = 'linear-gradient(135deg, #100d0b, #152219)'; // Deodar Forest Green hue
+    gradientStr = 'linear-gradient(135deg, #f4eae0, #d5e6db)'; // Deodar Forest Green hue
   } else if (slide.id === 'char-dham') {
-    gradientStr = 'linear-gradient(135deg, #100d0b, #2c2517)'; // Sacred Gold/Mustard hue
+    gradientStr = 'linear-gradient(135deg, #f4eae0, #eedeb6)'; // Sacred Gold/Mustard hue
   } else if (slide.id === 'ancient-architecture') {
-    gradientStr = 'linear-gradient(135deg, #100d0b, #151e24)'; // Slate Blue hue
+    gradientStr = 'linear-gradient(135deg, #f4eae0, #d9e3ea)'; // Slate Blue hue
   } else if (slide.id === 'festivals' || slide.id === 'arts-crafts') {
-    gradientStr = 'linear-gradient(135deg, #100d0b, #24141e)'; // Madder Red/Crimson hue
+    gradientStr = 'linear-gradient(135deg, #f4eae0, #eed9e3)'; // Madder Red/Crimson hue
   } else if (slide.id === 'icons-cinema') {
-    gradientStr = 'linear-gradient(135deg, #100d0b, #241c15)'; // Earthen Brown/Bark hue
+    gradientStr = 'linear-gradient(135deg, #f4eae0, #eed9cc)'; // Earthen Brown/Bark hue
   }
   bgAmbient.style.background = gradientStr;
 

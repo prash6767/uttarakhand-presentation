@@ -1,21 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --font-serif-header: 'Cinzel', Georgia, serif;
+  --font-serif-header: 'Marcellus', serif;
+  --font-serif-brand: 'Cinzel', Georgia, serif;
   --font-serif-body: 'Lora', Georgia, serif;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
-  /* Traditional Earthen Color Palette */
-  --bg-dark: #1b1613; /* Warm Himalayan charcoal-stone */
-  --bg-darker: #100d0b; /* Deep earthen brown-black */
-  --text-main: #fdfaf6; /* Biswar white / warm cream */
-  --text-muted: #bfae9e; /* Soft sand / weathered bark */
-  --glass-bg: rgba(30, 25, 21, 0.82); /* Dense earthen card background */
-  --glass-border: rgba(178, 59, 43, 0.25); /* Terracotta tint border */
-  --glass-highlight: rgba(255, 255, 255, 0.02);
+  /* Traditional Earthen Light Palette */
+  --bg-dark: #fdfbf7; /* Warm Ivory / Parchment */
+  --bg-darker: #f4eae0; /* Warm Saffron / Sand */
+  --text-main: #3d281a; /* Deep Espresso Brown */
+  --text-muted: #7d6756; /* Clay / Weathered Ochre */
+  --glass-bg: #fdfbf7; /* Earthen card panel background */
+  --glass-border: rgba(178, 59, 43, 0.2); /* Terracotta tint border */
+  --glass-highlight: rgba(255, 255, 255, 0.05);
   
   --accent-color: #b23b2b; /* Terracotta (Geru Red) */
-  --accent-glow: rgba(178, 59, 43, 0.2);
+  --accent-glow: rgba(178, 59, 43, 0.1);
   
   --transition-speed: 0.6s;
   --easing: cubic-bezier(0.16, 1, 0.3, 1);
@@ -47,6 +48,36 @@ body {
   display: flex;
   position: relative;
   overflow: hidden;
+}
+
+/* Toran hanging border across the top */
+#app::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='16' viewBox='0 0 30 16'%3E%3Cpath d='M0 0 L15 12 L30 0 Z' fill='%23b23b2b'/%3E%3Ccircle cx='15' cy='5' r='2' fill='%23d4af37'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Marigold flower corner graphic */
+#app::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 54px;
+  height: 54px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23f39c12' stroke='%23d35400' stroke-width='1'%3E%3Ccircle cx='50' cy='25' r='12'/%3E%3Ccircle cx='50' cy='75' r='12'/%3E%3Ccircle cx='25' cy='50' r='12'/%3E%3Ccircle cx='75' cy='50' r='12'/%3E%3Ccircle cx='32' cy='32' r='12'/%3E%3Ccircle cx='68' cy='68' r='12'/%3E%3Ccircle cx='32' cy='68' r='12'/%3E%3Ccircle cx='68' cy='32' r='12'/%3E%3C/g%3E%3Cg fill='%23e67e22' stroke='%23d35400' stroke-width='0.8'%3E%3Ccircle cx='50' cy='32' r='9'/%3E%3Ccircle cx='50' cy='68' r='9'/%3E%3Ccircle cx='32' cy='50' r='9'/%3E%3Ccircle cx='68' cy='50' r='9'/%3E%3Ccircle cx='37' cy='37' r='9'/%3E%3Ccircle cx='63' cy='63' r='9'/%3E%3Ccircle cx='37' cy='63' r='9'/%3E%3Ccircle cx='63' cy='37' r='9'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='15' fill='%23f1c40f' stroke='%23e67e22' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23d35400'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.9;
 }
 
 /* Background Gradients */
@@ -83,7 +114,7 @@ body {
 /* Slide Container & Animations */
 .slide-container {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.2fr 0.8fr; /* 60% Content, 40% Media */
   width: 100%;
   height: 100%;
   z-index: 10;
@@ -96,7 +127,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(90deg, rgba(16, 13, 11, 0.99) 40%, rgba(16, 13, 11, 0.85) 75%, transparent 100%);
+  background: linear-gradient(90deg, rgba(253, 251, 247, 0.99) 45%, rgba(253, 251, 247, 0.85) 80%, transparent 100%);
   z-index: 5;
   backdrop-filter: blur(8px);
   position: relative;
@@ -114,14 +145,14 @@ body {
     90deg,
     var(--accent-color) 0px,
     var(--accent-color) 4px,
-    var(--text-main) 4px,
-    var(--text-main) 6px,
+    #fdfbf7 4px,
+    #fdfbf7 6px,
     var(--accent-color) 6px,
     var(--accent-color) 10px,
-    var(--text-main) 10px,
-    var(--text-main) 12px
+    #fdfbf7 10px,
+    #fdfbf7 12px
   );
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .slide-subtitle {
@@ -143,7 +174,7 @@ body {
   line-height: 1.1;
   letter-spacing: -0.01em;
   margin-bottom: clamp(0.75rem, 2vh, 2rem);
-  background: linear-gradient(135deg, #ffffff 40%, #e8e3d9 100%);
+  background: linear-gradient(135deg, #3d281a 0%, #6d4b35 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0;
@@ -208,9 +239,13 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* Bullet details lists */
+/* Timeline details lists */
 .details-list {
   list-style: none;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(178, 59, 43, 0.25);
+  margin-left: 0.5rem;
   opacity: 0;
   transform: translateY(30px);
   animation: slide-up-fade 1s var(--easing) 0.4s forwards;
@@ -218,22 +253,28 @@ body {
 
 .details-list li {
   position: relative;
-  padding-left: 1.75rem;
   font-family: var(--font-serif-body);
   font-size: clamp(0.85rem, 1.8vh, 1rem);
   line-height: 1.5;
-  color: #e5e7eb;
-  margin-bottom: clamp(0.3rem, 0.8vh, 0.75rem);
+  color: var(--text-main);
+  margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+}
+
+.details-list li:last-child {
+  margin-bottom: 0;
 }
 
 .details-list li::before {
-  content: '♦';
+  content: '';
   position: absolute;
-  left: 0;
-  top: 0.1em;
-  font-size: 0.85rem;
-  color: var(--accent-color);
-  text-shadow: 0 0 2px rgba(178, 59, 43, 0.4);
+  left: calc(-1.5rem - 6px);
+  top: 0.4em;
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-color);
+  border: 2px solid #fdfbf7;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 /* Right Pane: Media display */
@@ -260,8 +301,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, rgba(5, 7, 9, 0.8) 0%, transparent 40%),
-              linear-gradient(0deg, rgba(5, 7, 9, 0.6) 0%, transparent 20%);
+  background: linear-gradient(90deg, rgba(253, 251, 247, 0.99) 0%, rgba(253, 251, 247, 0.15) 30%, transparent 60%),
+              linear-gradient(0deg, rgba(253, 251, 247, 0.2) 0%, transparent 20%);
   pointer-events: none;
 }
 
