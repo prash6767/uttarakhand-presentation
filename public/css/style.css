@@ -694,6 +694,11 @@ body {
   transform: none !important;
   box-shadow: none !important;
   animation: none !important;
+  opacity: 1 !important;
+}
+
+.slide-container.full-media.transition-out .slide-image {
+  opacity: 0 !important;
 }
 
 /* UCEED GK Highlight Box styling */
