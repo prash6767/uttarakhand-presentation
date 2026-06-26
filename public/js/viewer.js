@@ -100,11 +100,11 @@ function renderSlide(slide) {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #d5e6db)'; // Deodar Forest Green hue
   } else if (slide.id === 'events' || slide.id === 'temples') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #eedeb6)'; // Sacred Gold/Mustard hue
-  } else if (slide.id === 'geography' || slide.id === 'crafts') {
+  } else if (slide.id === 'geography' || slide.id === 'crafts' || slide.id === 'meme-drake') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #d9e3ea)'; // Slate Blue hue
-  } else if (slide.id === 'motifs' || slide.id === 'textile-dance-music') {
+  } else if (slide.id === 'motifs' || slide.id === 'textile-dance-music' || slide.id === 'meme-sweaters') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #eed9e3)'; // Madder Red/Crimson hue
-  } else if (slide.id === 'famous-ppl-movies') {
+  } else if (slide.id === 'famous-ppl-movies' || slide.id === 'meme-traffic') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #eed9cc)'; // Earthen Brown/Bark hue
   }
   bgAmbient.style.background = gradientStr;
