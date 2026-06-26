@@ -121,6 +121,13 @@ function renderSlide(slide) {
     slideContainer.classList.remove('full-media');
   }
 
+  // Toggle layout class for image-only slides
+  if (slide.imageOnly) {
+    slideContainer.classList.add('image-only');
+  } else {
+    slideContainer.classList.remove('image-only');
+  }
+
   // Facts Grid
   factsGridEl.innerHTML = '';
   if (slide.facts && slide.facts.length > 0) {

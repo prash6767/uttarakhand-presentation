@@ -704,6 +704,35 @@ body {
   opacity: 0 !important;
 }
 
+/* Image-only slide layout (e.g. memes) */
+.slide-container.image-only {
+  justify-content: center !important;
+}
+
+.slide-container.image-only .content-pane {
+  display: none !important;
+}
+
+.slide-container.image-only .media-pane {
+  width: min(600px, 60%) !important;
+  height: 85% !important;
+}
+
+.slide-container.image-only .slide-image {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  aspect-ratio: auto !important;
+}
+
+@media (max-width: 900px) {
+  .slide-container.image-only .media-pane {
+    width: 90% !important;
+    max-height: 75vh !important;
+    height: auto !important;
+    margin-bottom: 0 !important;
+  }
+}
+
 /* UCEED GK Highlight Box styling */
 .uceed-gk-box {
   margin-top: clamp(1rem, 2.5vh, 2.5rem);

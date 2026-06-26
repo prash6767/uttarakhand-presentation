@@ -77,22 +77,10 @@ const slides = [
   },
   {
     id: "meme-drake",
-    title: "The Ultimate Escape",
-    subtitle: "Drake Denies: Delhi Traffic vs. Devbhoomi Breezes",
-    description: "A classic comparison: why deal with urban concrete jungles when you can breathe the pure mountain air of Uttarakhand?",
+    title: "Meme: The Ultimate Escape",
     image: "/memes/drake-denying.jpeg",
     accentColor: "#465a65",
-    facts: [
-      { label: "Preference", value: "Uttarakhand Hills" },
-      { label: "Vibe", value: "Cool Breeze" },
-      { label: "City Hustle", value: "Nah, Thanks" }
-    ],
-    details: [
-      "Drake objects to: Hot traffic-choked metropolitan streets, endless honking, and urban heat islands.",
-      "Drake approves: Misty mornings in Kumaon, scenic viewpoints in Garhwal, and organic mountain hospitality.",
-      "A humorous take on the contrast between city stress and mountain serenity."
-    ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> Visual storytelling through internet memes often relies on juxtaposition. The contrast between bright/positive reactions and dark/negative ones is a classic design trick to communicate preferences instantly."
+    imageOnly: true
   },
   {
     id: "flora-fauna",
@@ -191,22 +179,10 @@ const slides = [
   },
   {
     id: "meme-sweaters",
-    title: "Authentic vs. Branded",
-    subtitle: "Pahadi Knits vs. Luxury Brands",
-    description: "High-end designer labels cannot match the warmth, durability, and love woven into authentic, hand-knitted Uttarakhand woolen sweaters.",
+    title: "Meme: Authentic vs. Branded",
     image: "/memes/sweaters.jpeg",
     accentColor: "#b23b2b",
-    facts: [
-      { label: "Warmth Factor", value: "Authentic wool" },
-      { label: "Craftsmanship", value: "Hand-Knitted" },
-      { label: "Luxury Label", value: "Overpriced" }
-    ],
-    details: [
-      "Handmade by local Bhotia and Pahadi weavers using age-old hand-knitting techniques.",
-      "Woven with pure sheep or Angora wool, offering natural insulation and unmatched breathing comfort.",
-      "Support local artisans and sustainable slow fashion rather than mass-produced fast-fashion garments."
-    ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> Traditional handloom weaving in Uttarakhand is practiced primarily by the <em>Bhotia</em> community, using horizontal backstrap looms and vertical frame looms. Their products offer superior thermal efficiency compared to synthetic fibers."
+    imageOnly: true
   },
   {
     id: "events",
@@ -248,22 +224,10 @@ const slides = [
   },
   {
     id: "meme-traffic",
-    title: "The Delhi Migration",
-    subtitle: "Weekend Highways & Mountain Jams",
-    description: "Every Friday afternoon, Delhiites pack their bags and head straight to Uttarakhand, turning serene winding mountain roads into bumper-to-bumper city streets.",
+    title: "Meme: The Delhi Migration",
     image: "/memes/weekend-traffic.jpeg",
     accentColor: "#a05a2c",
-    facts: [
-      { label: "Delhi Exodus", value: "Every Weekend" },
-      { label: "Road Status", value: "Chok-a-Blok" },
-      { label: "Travel Time", value: "Double!" }
-    ],
-    details: [
-      "Weekend tourism creates high traffic load on main arterial routes like Dehradun-Mussoorie and Kathgodam-Nainital.",
-      "Eco-conscious travel is encouraged: avoid peak hours, minimize single-use plastics, and respect quiet mountain zones.",
-      "The irony of escaping city traffic only to recreate it on pristine hill station borders."
-    ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> In design and urban planning, tourist carrying capacity is a critical measure. Over-tourism can cause soil erosion, waste management challenges, and micro-climate changes along fragile Himalayan eco-sensitive zones."
+    imageOnly: true
   },
   {
     id: "unesco-sites",
