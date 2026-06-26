@@ -25,7 +25,7 @@ const slides = [
     subtitle: "Introduction Video",
     description: "Welcome to Uttarakhand. Watch this visual journey to experience the breathtaking beauty of the land of the gods.",
     video: "/Uttarakhand%20Intro.mp4",
-    accentColor: "#e67e22",
+    accentColor: "#b23b2b",
     facts: [
       { label: "Duration", value: "Intro Video" },
       { label: "Experience", value: "Cinematic" },
@@ -43,7 +43,7 @@ const slides = [
     subtitle: "Devbhoomi — The Land of the Gods",
     description: "Situated in the northwestern Himalayas, Uttarakhand is a sanctuary of pristine nature and ancient heritage. Its inhabitants (Pahadis) live in harmony with the rhythm of mother nature.",
     image: "/assets/images/welcome_hero.png",
-    accentColor: "#e67e22",
+    accentColor: "#b23b2b",
     facts: [
       { label: "Capital", value: "Dehradun / Gairsain" },
       { label: "Statehood", value: "9th November 2000" },
@@ -62,7 +62,7 @@ const slides = [
     subtitle: "Nanda Devi & Valley of Flowers",
     description: "The state protects two globally recognized national parks within a massive biosphere reserve, preserving rare endemic flora and endangered high-altitude wildlife.",
     image: "/assets/images/valley_of_flowers.png",
-    accentColor: "#2ecc71",
+    accentColor: "#2c5e3b",
     facts: [
       { label: "Nanda Devi Peak", value: "7,816 m (India's 2nd Highest)" },
       { label: "UNESCO Status", value: "Declared 1988 / 2005" },
@@ -81,7 +81,7 @@ const slides = [
     subtitle: "Kedarnath, Badrinath & Yamunotri",
     description: "The historic spiritual core of the Himalayas. These high-altitude temples have stood for centuries, surviving extreme weather, avalanches, and geological shifting.",
     image: "/assets/images/spiritual_char_dham.png",
-    accentColor: "#f1c40f",
+    accentColor: "#d4af37",
     facts: [
       { label: "Kedarnath Alt", value: "3,584 meters" },
       { label: "Badrinath Priest", value: "Rawal (Kerala Namboodiri)" },
@@ -100,7 +100,7 @@ const slides = [
     subtitle: "Stone Temples of early kingdoms",
     description: "Historic stone complexes built from locally dressed stone blocks, showcasing Nagara style temple architecture modified specifically for mountain environments.",
     image: "/assets/images/himalayan_peaks.png",
-    accentColor: "#3498db",
+    accentColor: "#465a65",
     facts: [
       { label: "Jageshwar complex", value: "Over 100 stone temples" },
       { label: "Katarmal Sun", value: "9th Century CE" },
@@ -119,7 +119,7 @@ const slides = [
     subtitle: "Aipan, woodwork & local fibers",
     description: "Indigenous crafts reflect the resourcefulness of mountain communities, utilizing regional flora and minerals for artistic and daily utility.",
     image: "/assets/images/culture_aipan.png",
-    accentColor: "#e74c3c",
+    accentColor: "#b23b2b",
     facts: [
       { label: "Aipan Base", value: "Geru (Red clay) & Rice paste" },
       { label: "Bamboo Weaver", value: "Flexible Ringaal bamboo" },
@@ -138,7 +138,7 @@ const slides = [
     subtitle: "Seasonal Cycles & Sacred Dramas",
     description: "Uttarakhand's culture is a living tapestry of community festivals and ancient folk performances that celebrate seasonal shifts and environmental respect.",
     image: "/assets/images/culture_aipan.png",
-    accentColor: "#9b59b6",
+    accentColor: "#6b3459",
     facts: [
       { label: "UNESCO List", value: "Ramman masked theater" },
       { label: "Harela Feast", value: "Monsoon sowing / planting" },
@@ -157,7 +157,7 @@ const slides = [
     subtitle: "Pioneers, Heroes & Scenic backdrops",
     description: "Uttarakhand is the birthplace of national security leaders, legendary mountaineers, and ecological champions, providing scenic backdrops for cinema.",
     image: "/assets/images/adventure_auli.png",
-    accentColor: "#e67e22",
+    accentColor: "#a05a2c",
     facts: [
       { label: "Chipko Leader", value: "Sunderlal Bahuguna" },
       { label: "Defence Icons", value: "NSA Ajit Doval / CDS Rawat" },

@@ -11,7 +11,7 @@
 
 /* Sidebar styling */
 .admin-sidebar {
-  background: rgba(10, 15, 20, 0.9);
+  background: rgba(30, 25, 21, 0.95);
   border-right: 1px solid var(--glass-border);
   padding: 6rem 2rem 2rem 2rem;
   display: flex;
@@ -25,6 +25,7 @@
 }
 
 .sidebar-title {
+  font-family: var(--font-serif-header);
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -140,7 +141,7 @@
 /* Main Preview Panel */
 .admin-preview {
   position: relative;
-  background: #000000;
+  background: var(--bg-darker);
   border-left: 1px solid var(--glass-border);
   display: flex;
   flex-direction: column;
@@ -234,7 +235,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(5, 7, 9, 0.9);
+  background: rgba(27, 22, 19, 0.95);
   backdrop-filter: blur(25px);
   z-index: 2000;
   display: flex;
@@ -346,15 +347,15 @@
 }
 
 .active-play {
-  background: rgba(46, 204, 113, 0.2) !important;
-  border-color: #2ecc71 !important;
-  color: #2ecc71 !important;
-  box-shadow: 0 0 15px rgba(46, 204, 113, 0.2) !important;
+  background: rgba(44, 94, 59, 0.2) !important;
+  border-color: #2c5e3b !important;
+  color: #a3cca8 !important;
+  box-shadow: 0 0 10px rgba(44, 94, 59, 0.2) !important;
 }
 
 .active-pause {
-  background: rgba(231, 76, 60, 0.2) !important;
-  border-color: #e74c3c !important;
-  color: #e74c3c !important;
-  box-shadow: 0 0 15px rgba(231, 76, 60, 0.2) !important;
+  background: rgba(178, 59, 43, 0.2) !important;
+  border-color: #b23b2b !important;
+  color: #f7a399 !important;
+  box-shadow: 0 0 10px rgba(178, 59, 43, 0.2) !important;
 }
