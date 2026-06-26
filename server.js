@@ -22,7 +22,7 @@ const slides = [
   {
     id: "intro-video",
     title: "Devbhoomi Uttarakhand",
-    subtitle: "Introduction Video",
+    subtitle: "Cinematic Introduction",
     description: "Welcome to Uttarakhand. Watch this visual journey to experience the breathtaking beauty of the land of the gods.",
     video: "/Uttarakhand%20Intro.mp4",
     accentColor: "#b23b2b",
@@ -38,137 +38,213 @@ const slides = [
     ]
   },
   {
-    id: "welcome",
+    id: "overview",
     title: "Uttarakhand Overview",
     subtitle: "Devbhoomi — The Land of the Gods",
-    description: "Situated in the northwestern Himalayas, Uttarakhand is a sanctuary of pristine nature and ancient heritage. Its inhabitants (Pahadis) live in harmony with the rhythm of mother nature.",
+    description: "Uttarakhand is a sanctuary of pristine nature and ancient heritage. Its inhabitants, collectively addressed as Pahadi, live in harmony with the grandeur and integrity of mother nature.",
     image: "/assets/images/welcome_hero.png",
     accentColor: "#b23b2b",
     facts: [
       { label: "Capital", value: "Dehradun / Gairsain" },
       { label: "Statehood", value: "9th November 2000" },
-      { label: "Forest Cover", value: "Over 45% of total area" }
+      { label: "Forest Cover", value: "Over 65% of total area" }
     ],
     details: [
-      "Traditional Pahadi houses are built with stack-stones, mud-cow dung plaster, and sloped slate roofs (Pathali style).",
-      "Abundant local pine wood (chir) is the primary timber used to construct ceilings and floors.",
-      "Geographically divided into Kumaon and Garhwal divisions, serving as the source region for the Ganges and Yamuna."
+      "Geographically divided into Kumaon and Garhwal divisions, serving as major cultural regions.",
+      "Spirituality, mysticism, and pristine nature make it one of India's major pilgrimage centers.",
+      "Lifestyles are consciously designed to complement the natural rhythm instead of disturbing it."
     ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> <em>Pathali Architecture</em> is an indigenous ecological design utilizing stack-stone walls, mud plaster, and sloped roofs for natural thermal insulation in mountain climates."
+    uceedGK: "🎓 <strong>UCEED GK:</strong> The state of Uttarakhand is characterized by its distinct mountain communities (Kumaoni and Garhwali) who emphasize ecological preservation and forest conservation."
+  },
+  {
+    id: "geography",
+    title: "Himalayan Geography",
+    subtitle: "Glaciers, Peaks & Boundaries",
+    description: "Situated in the northwestern Himalayas, Uttarakhand borders Nepal to the east, Himachal Pradesh to the northwest, and Tibet to the north, creating a strategic frontier region.",
+    image: "/assets/images/himalayan_peaks.png",
+    accentColor: "#465a65",
+    facts: [
+      { label: "Glaciers", value: "More than 900" },
+      { label: "Highest Peak", value: "Nanda Devi (7,816m)" },
+      { label: "Last Village", value: "Mana (Border Frontier)" }
+    ],
+    details: [
+      "Hosts the second highest mountain peak in India, Nanda Devi, which is revered globally.",
+      "Serves as the vital source region for the Ganga and Yamuna river systems from massive glacial fields.",
+      "Mana village stands as India's last boundary settlement, connecting historical trade routes to Tibet."
+    ],
+    uceedGK: "🎓 <strong>UCEED GK:</strong> Uttarakhand contains more than 900 glaciers, feeding the major rivers of northern India. Mana is historically recognized as the final settlement on the Indo-Tibetan border."
+  },
+  {
+    id: "flora-fauna",
+    title: "Himalayan Biodiversity",
+    subtitle: "Flora & Fauna",
+    description: "Uttarakhand boasts a highly diverse ecosystem that shifts dramatically with its varying altitudes, creating distinct tropical, temperate, and sub-alpine zones.",
+    image: "/assets/images/valley_of_flowers.png",
+    accentColor: "#2c5e3b",
+    facts: [
+      { label: "State Bird", value: "Himalayan Monal" },
+      { label: "Rare Bloom", value: "Brahma Kamal" },
+      { label: "Elev. Range", value: "Up to 5,000m+" }
+    ],
+    details: [
+      "Tropical zones house Sal, Teak, and Bamboo, while temperate elevations stand lush with Oak, Pine, Deodar, and Rhododendron.",
+      "Alpine zones harbor Birch, Fir, Juniper, the sacred Brahma Kamal, and the rare Himalayan Blue Poppy.",
+      "Teems with diverse predators (Bengal Tiger, Snow Leopard) and herbivores (Himalayan Musk Deer, Tahr, Blue Sheep)."
+    ],
+    uceedGK: "🎓 <strong>UCEED GK:</strong> The state bird of Uttarakhand is the vibrant <em>Himalayan Monal</em>. High-altitude meadows house the rare <em>Brahma Kamal</em> and the elusive <em>Himalayan Blue Poppy</em>."
+  },
+  {
+    id: "national-parks",
+    title: "Wildlife Sanctuaries",
+    subtitle: "Jim Corbett & Biosphere Reserves",
+    description: "Uttarakhand is a global focal point for wildlife conservation, hosting India's oldest national park and massive high-altitude sanctuaries that protect endangered species.",
+    image: "/assets/images/valley_of_flowers.png",
+    accentColor: "#2c5e3b",
+    facts: [
+      { label: "Corbett", value: "India's Oldest Park" },
+      { label: "Snow Leopard", value: "Gangotri & Nanda Devi" },
+      { label: "Initiatives", value: "Project Tiger & Chipko" }
+    ],
+    details: [
+      "Jim Corbett National Park was established as India's first national park to protect the Bengal Tiger.",
+      "Gangotri National Park holds one of the largest remaining populations of vulnerable Snow Leopards.",
+      "Formed as key reference ecosystems for long-term ecological monitoring in the Western Himalayas."
+    ],
+    uceedGK: "🎓 <strong>UCEED GK:</strong> <em>Jim Corbett National Park</em> (established 1936 as Hailey National Park) is India's oldest park. It launched the first <strong>Project Tiger</strong> initiative in 1973."
+  },
+  {
+    id: "motifs",
+    title: "Common Designs & Motifs",
+    subtitle: "Aipan & Textile Art Symbols",
+    description: "Traditional motifs in Uttarakhand are deeply ritualistic, drawn freehand to invoke divine blessings, good fortune, and positive energy during festivals and weddings.",
+    image: "/assets/images/culture_aipan.png",
+    accentColor: "#b23b2b",
+    facts: [
+      { label: "Paint Medium", value: "Rice Paste & Geru Red" },
+      { label: "Sacred Symbols", value: "Swastika & Shiv Peeth" },
+      { label: "Technique", value: "Freehand (No stencils)" }
+    ],
+    details: [
+      "Aipan floor art uses white Biswar (rice paste) on a natural red clay base (Geru) symbolizing purity and energy.",
+      "Lotus motifs represent beauty and enlightenment, while Saraswati Chowki honors the goddess of arts.",
+      "Pichora textile shawls feature iconic symbols depicting local flora, fauna, and regional cultural icons."
+    ],
+    uceedGK: "🎓 <strong>UCEED GK:</strong> <em>Aipan</em> floor drawings feature geometrical and symbolic patterns passed down freehand from mothers to daughters. <em>Pichora</em> is Kumaon's traditional wedding odhani."
+  },
+  {
+    id: "crafts",
+    title: "Crafts & Architecture",
+    subtitle: "Pahadi Wood, Bamboo & Copper",
+    description: "Indigenous crafts reflect the resourcefulness of mountain communities, utilizing local wood, metals, clay, and bamboo for daily utility and structural engineering.",
+    image: "/assets/images/culture_aipan.png",
+    accentColor: "#465a65",
+    facts: [
+      { label: "Bamboo", value: "Flexible Ringaal dwarf" },
+      { label: "Metalwork", value: "Tamta Copper Artisans" },
+      { label: "Clay", value: "Terracotta & Glazed" }
+    ],
+    details: [
+      "Pathali architecture uses stacked stone, deodar wood, and mud-cow dung plaster for natural thermal insulation.",
+      "Ringaal bamboo is woven into biodegradable storage baskets, agricultural mats, and fashionable handbags.",
+      "Copperware craft is hand-hammered and engraved by the traditional Tamta artisan community for household and temple utensils."
+    ],
+    uceedGK: "🎓 <strong>UCEED GK:</strong> <em>Pathali architecture</em> is an ancient earthquake-resistant, sloped-roof stone housing style. <em>Tamta</em> copperware and <em>Ringaal</em> bamboo represent key handicraft skills."
+  },
+  {
+    id: "textile-dance-music",
+    title: "Textile, Dance & Music",
+    subtitle: "Handlooms, Sword Dances & Jagars",
+    description: "Uttarakhand's performing arts and handloom traditions celebrate community unity, folklore narratives, and spiritual connections with ancestral forces.",
+    image: "/assets/images/culture_aipan.png",
+    accentColor: "#b23b2b",
+    facts: [
+      { label: "Sword Dance", value: "Chholiya Rajput Martial" },
+      { label: "Ritual Music", value: "Jagar Divine Invocation" },
+      { label: "Wool Weaver", value: "Bhotia Himalayan Community" }
+    ],
+    details: [
+      "The Bhotia weavers dominate wool handlooms, weaving Pashmina shawls and heavy Thulma blankets.",
+      "Chholiya is a Kumaoni sword dance performed at weddings, accompanied by traditional Dhol and Damau drums.",
+      "Jagar music is a sacred singing ritual performed to invoke local deities and ancestral spirits."
+    ],
+    uceedGK: "🎓 <strong>UCEED GK:</strong> The traditional Kumaoni <em>Chholiya</em> sword dance originated as a martial performance. <em>Jagar</em> is a unique musical form dedicated to deity invocation."
+  },
+  {
+    id: "events",
+    title: "Festivals & Seasonal Events",
+    subtitle: "Monsoon Seeds & Spring Wildflowers",
+    description: "Community festivals celebrate agricultural cycles, seasonal shifts, family bonds, and environmental conservation in the high Himalayan villages.",
+    image: "/assets/images/culture_aipan.png",
+    accentColor: "#6b3459",
+    facts: [
+      { label: "Monsoon Harela", value: "Monsoon Sowing & Trees" },
+      { label: "Spring Phool Dei", value: "Floral Thresholds" },
+      { label: "Winter Ghughutia", value: "January Makar Sankranti" }
+    ],
+    details: [
+      "Harela is celebrated in July by sowing seeds in baskets 9 days prior, culminating in environmental tree plantings.",
+      "Phool Dei features children placing spring wildflowers on neighbors' doorsteps for blessings and receiving sweets.",
+      "Bhitauli is a Chaitra custom where siblings visit married sisters with gifts, maintaining family ties across isolated valleys."
+    ],
+    uceedGK: "🎓 <strong>UCEED GK:</strong> <em>Harela</em> is an eco-centric festival celebrating the monsoon onset. <em>Phool Dei</em> celebrates spring by placing fresh mountain blooms on thresholds."
+  },
+  {
+    id: "temples",
+    title: "Sacred Temples",
+    subtitle: "Kedarnath, Badrinath & Yamunotri",
+    description: "The historic spiritual core of the Himalayas. These high-altitude temples have stood for centuries, exhibiting advanced stone engineering adapted specifically to extreme mountain hazards.",
+    image: "/assets/images/spiritual_char_dham.png",
+    accentColor: "#d4af37",
+    facts: [
+      { label: "Kedarnath stone", value: "Interlocking Grey Granite" },
+      { label: "Badrinath Priest", value: "Namboodiri Rawal (Kerala)" },
+      { label: "Yamunotri hot", value: "Surya Kund Geothermal" }
+    ],
+    details: [
+      "Kedarnath, built with massive granite stones, faces south (unusual) and survived the 2013 floods protected by a massive boulder.",
+      "Badrinath lies between the Nar and Narayana ranges; its chief priest historically comes from Kerala to link North and South India.",
+      "Yamunotri, westernmost of Char Dham, features boiling-point geothermal springs (Surya Kund) adjacent to cold snowfields."
+    ],
+    uceedGK: "🎓 <strong>UCEED GK:</strong> Badrinath's chief priest (Rawal) is a Namboodiri Brahmin from Kerala, a custom established by Adi Shankaracharya. Kedarnath's interlocking stone structure is seismically resilient."
   },
   {
     id: "unesco-sites",
     title: "UNESCO Heritage Sites",
-    subtitle: "Nanda Devi & Valley of Flowers",
-    description: "The state protects two globally recognized national parks within a massive biosphere reserve, preserving rare endemic flora and endangered high-altitude wildlife.",
+    subtitle: "Biosphere Sanctuaries & Masked Dramas",
+    description: "Uttarakhand hosts three UNESCO-recognized heritage items, highlighting the state's global ecological importance and preserved performing art traditions.",
     image: "/assets/images/valley_of_flowers.png",
     accentColor: "#2c5e3b",
     facts: [
-      { label: "Nanda Devi Peak", value: "7,816 m (India's 2nd Highest)" },
-      { label: "UNESCO Status", value: "Declared 1988 / 2005" },
-      { label: "Flora Diversity", value: "Over 500 species of flowers" }
+      { label: "Nanda Devi", value: "UNESCO Site 1988" },
+      { label: "Valley of Flowers", value: "UNESCO Site 2005" },
+      { label: "Ramman Theater", value: "Intangible Heritage 2009" }
     ],
     details: [
-      "Nanda Devi National Park is surrounded by a natural ring of high mountains, protecting the Snow Leopard, Himalayan Musk Deer, and Tahr.",
-      "Valley of Flowers is a high-altitude alpine meadow famous for monsoon wildflowers, popularized by British mountaineer Frank Smythe in 1931.",
-      "Both parks serve as critical sites for ecological monitoring in the Western Himalayan Endemic Bird Area (EBA)."
+      "Nanda Devi National Park is surrounded by a ring of peaks, forming a sanctuary with limited human access.",
+      "Valley of Flowers contains over 500 wildflower species, popularized by British mountaineer Frank Smythe in 1931.",
+      "Ramman is a sacred theatrical performance in Chamoli district where villagers wear hand-carved wooden masks."
     ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> Both parks form the <em>Nanda Devi Biosphere Reserve</em> and are located in the Chamoli district, serving as key reference areas for Western Himalayan Endemic Bird Area studies."
+    uceedGK: "🎓 <strong>UCEED GK:</strong> <em>Ramman</em> is inscribed on UNESCO's Intangible Cultural Heritage List. Both parks together constitute the <em>Nanda Devi Biosphere Reserve</em>."
   },
   {
-    id: "char-dham",
-    title: "The Sacred Char Dham",
-    subtitle: "Kedarnath, Badrinath & Yamunotri",
-    description: "The historic spiritual core of the Himalayas. These high-altitude temples have stood for centuries, surviving extreme weather, avalanches, and geological shifting.",
-    image: "/assets/images/spiritual_char_dham.png",
-    accentColor: "#d4af37",
-    facts: [
-      { label: "Kedarnath Alt", value: "3,584 meters" },
-      { label: "Badrinath Priest", value: "Rawal (Kerala Namboodiri)" },
-      { label: "Yamunotri Source", value: "Champasar Glacier" }
-    ],
-    details: [
-      "Kedarnath's south-facing temple survived the 2013 floods undamaged, protected by a massive boulder (Bhim Shila) that diverted the debris flow.",
-      "Yamunotri is dedicated to the Yamuna River; the nearby Surya Kund spring features near-boiling water driven by geothermal activity.",
-      "Badrinath Temple lies on the banks of the Alaknanda River between the Nar and Narayana ranges, recognized as one of the 108 Divya Desams."
-    ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> Badrinath's chief priest (Rawal) is historically appointed from Kerala (South India), representing ancient cultural linkages established by Adi Shankaracharya in the 8th century."
-  },
-  {
-    id: "ancient-architecture",
-    title: "Medieval Katyuri Architecture",
-    subtitle: "Stone Temples of early kingdoms",
-    description: "Historic stone complexes built from locally dressed stone blocks, showcasing Nagara style temple architecture modified specifically for mountain environments.",
-    image: "/assets/images/himalayan_peaks.png",
-    accentColor: "#465a65",
-    facts: [
-      { label: "Jageshwar complex", value: "Over 100 stone temples" },
-      { label: "Katarmal Sun", value: "9th Century CE" },
-      { label: "Patrons", value: "Katyuri & Chand Dynasties" }
-    ],
-    details: [
-      "Jageshwar is a medieval Shaivite temple cluster situated in dense deodar forests, representing a preserved sacred landscape.",
-      "Baijnath group on the Gomti River was part of Kartikeyapura, the historical capital of the Katyuri Dynasty.",
-      "Katarmal is one of the few major Sun Temples in India, built on a ridge by King Katarmalla to maximize daily solar exposure."
-    ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> Katarmal is a rare North Indian <em>Sun Temple</em>. Jageshwar complex showcases the <em>Nagara style</em> of tall stone spires (shikharas) adapted to high-altitude seismic zones."
-  },
-  {
-    id: "arts-crafts",
-    title: "Arts & Loom Traditions",
-    subtitle: "Aipan, woodwork & local fibers",
-    description: "Indigenous crafts reflect the resourcefulness of mountain communities, utilizing regional flora and minerals for artistic and daily utility.",
-    image: "/assets/images/culture_aipan.png",
-    accentColor: "#b23b2b",
-    facts: [
-      { label: "Aipan Base", value: "Geru (Red clay) & Rice paste" },
-      { label: "Bamboo Weaver", value: "Flexible Ringaal bamboo" },
-      { label: "Traditional Shawl", value: "Reversible Pichora (Kumaon)" }
-    ],
-    details: [
-      "Aipan floor drawings feature geometric, ritualistic mandalas. Peeth art utilizes 12 to 19 dots transversally to draw ceremonial bases.",
-      "Bhimal plant fiber is harvested to craft flexible ropes, mats, and baskets; the leaves serve as fodder, and the sap acts as natural shampoo.",
-      "Ringaal (dwarf bamboo) is woven into mats, baskets, and bags. High-altitude Bhotia weavers weave Pashmina woolens with Tibetan/Nepali motifs."
-    ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> <em>Aipan</em> is a floor painting style using white rice paste on red clay (Geru). <em>Chamba Rumal</em> and Kumaon's <em>Pichora</em> represent major regional embroidery and textile arts."
-  },
-  {
-    id: "festivals",
-    title: "Festivals & Intangible Culture",
-    subtitle: "Seasonal Cycles & Sacred Dramas",
-    description: "Uttarakhand's culture is a living tapestry of community festivals and ancient folk performances that celebrate seasonal shifts and environmental respect.",
-    image: "/assets/images/culture_aipan.png",
-    accentColor: "#6b3459",
-    facts: [
-      { label: "UNESCO List", value: "Ramman masked theater" },
-      { label: "Harela Feast", value: "Monsoon sowing / planting" },
-      { label: "Phool Dei", value: "Spring threshold decoration" }
-    ],
-    details: [
-      "Harela is celebrated in July; families grow wheat seeds in baskets and plant trees to promote environmental conservation and agricultural fertility.",
-      "Ramman is a sacred folk theatre in Saloor-Dungra village (Chamoli) where performers wear wooden masks representing deities and legends.",
-      "Phool Dei, in mid-March, features young children placing seasonal wildflowers on neighbors' thresholds to pray for prosperity."
-    ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> <em>Ramman</em> (masked theatre) is inscribed on <strong>UNESCO's Representative List of Intangible Cultural Heritage</strong>. Traditional wooden masks are hand-carved by local artisans."
-  },
-  {
-    id: "icons-cinema",
+    id: "famous-ppl-movies",
     title: "Icons & Cinema Vistas",
-    subtitle: "Pioneers, Heroes & Scenic backdrops",
-    description: "Uttarakhand is the birthplace of national security leaders, legendary mountaineers, and ecological champions, providing scenic backdrops for cinema.",
+    subtitle: "Eco-Pioneers, Heroes & Scenic Backdrops",
+    description: "Uttarakhand has birthed historic national security leaders, legendary poets, and environmental champions, serving as an iconic backdrop for Indian cinema.",
     image: "/assets/images/adventure_auli.png",
     accentColor: "#a05a2c",
     facts: [
-      { label: "Chipko Leader", value: "Sunderlal Bahuguna" },
-      { label: "Defence Icons", value: "NSA Ajit Doval / CDS Rawat" },
-      { label: "Everest Pioneer", value: "Bachendri Pal" }
+      { label: "Chipko Leaders", value: "Bahuguna & Gaura Devi" },
+      { label: "Defense Icons", value: "NSA Doval & CDS Rawat" },
+      { label: "Classic Movie", value: "Kedarnath (2018)" }
     ],
     details: [
-      "Sunderlal Bahuguna spearheaded the world-famous Chipko Movement in 1973, hugging forest trees to prevent commercial logging.",
-      "NSA Ajit Doval and first CDS Bipin Rawat are national security pioneers born and raised in the Garhwal Himalayas.",
-      "Blockbuster films like 'Kedarnath' (2018), 'Lakshya' (2004), and Kapoor's 'Ram Teri Ganga Maili' (1985) filmed in Harsil, Auli, and Dehradun's FRI."
+      "Gaura Devi and Sunderlal Bahuguna spearheaded the world-famous Chipko Movement in 1973 by hugging trees to prevent commercial logging.",
+      "National defense pioneers Ajit Doval (NSA) and first CDS Bipin Rawat were born in Garhwal.",
+      "Filmed in visual gems like Dehradun's FRI, Auli meadows, and Tehri Lake: 'Kedarnath' (2018) and 'Lakshya' (2004)."
     ],
-    uceedGK: "🎓 <strong>UCEED GK:</strong> The <em>Chipko Movement</em> (1973 environmental crusade) began in Uttarakhand. Mussoorie/FRI Dehradun are major colonial architectural filming locations."
+    uceedGK: "🎓 <strong>UCEED GK:</strong> The <em>Chipko Movement</em> (1973) is a historic environmental crusade. Forest Research Institute (FRI) Dehradun is a major architectural filming hub."
   }
 ];
 

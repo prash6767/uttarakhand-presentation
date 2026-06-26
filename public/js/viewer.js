@@ -94,17 +94,17 @@ function renderSlide(slide) {
 
   // Update background gradient
   let gradientStr = 'linear-gradient(135deg, #f4eae0, #eae0d0)';
-  if (slide.id === 'intro-video' || slide.id === 'welcome') {
+  if (slide.id === 'intro-video' || slide.id === 'overview') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #edd9cb)'; // Earthen Terracotta/Warm hue
-  } else if (slide.id === 'unesco-sites') {
+  } else if (slide.id === 'flora-fauna' || slide.id === 'national-parks' || slide.id === 'unesco-sites') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #d5e6db)'; // Deodar Forest Green hue
-  } else if (slide.id === 'char-dham') {
+  } else if (slide.id === 'events' || slide.id === 'temples') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #eedeb6)'; // Sacred Gold/Mustard hue
-  } else if (slide.id === 'ancient-architecture') {
+  } else if (slide.id === 'geography' || slide.id === 'crafts') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #d9e3ea)'; // Slate Blue hue
-  } else if (slide.id === 'festivals' || slide.id === 'arts-crafts') {
+  } else if (slide.id === 'motifs' || slide.id === 'textile-dance-music') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #eed9e3)'; // Madder Red/Crimson hue
-  } else if (slide.id === 'icons-cinema') {
+  } else if (slide.id === 'famous-ppl-movies') {
     gradientStr = 'linear-gradient(135deg, #f4eae0, #eed9cc)'; // Earthen Brown/Bark hue
   }
   bgAmbient.style.background = gradientStr;
