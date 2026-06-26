@@ -232,4 +232,15 @@ function syncVideo(state) {
   }
 }
 
+// Request sync when page becomes visible or focused
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    socket.emit('request-video-sync');
+  }
+});
+
+window.addEventListener('focus', () => {
+  socket.emit('request-video-sync');
+});
+
 

@@ -279,6 +279,13 @@ io.on('connection', (socket) => {
     }
   });
 
+  // Handle request for current video synchronization state
+  socket.on('request-video-sync', () => {
+    if (slides[currentSlideIndex].video) {
+      socket.emit('video-state-update', videoState);
+    }
+  });
+
   socket.on('disconnect', () => {
     // Clean up if necessary
   });

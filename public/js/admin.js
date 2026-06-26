@@ -119,8 +119,13 @@ function setupDashboard() {
     try {
       const iframeDoc = previewIframe.contentDocument;
       const videoEl = iframeDoc ? iframeDoc.getElementById('slide-video') : null;
-      const currentTime = videoEl ? videoEl.currentTime : 0;
-      socket.emit('video-control', { action: 'play', currentTime: currentTime });
+      if (videoEl) {
+        videoEl.play().catch(err => console.warn("Local play error:", err));
+        const currentTime = videoEl.currentTime;
+        socket.emit('video-control', { action: 'play', currentTime: currentTime });
+      } else {
+        socket.emit('video-control', { action: 'play', currentTime: 0 });
+      }
     } catch (e) {
       socket.emit('video-control', { action: 'play', currentTime: 0 });
     }
@@ -130,8 +135,13 @@ function setupDashboard() {
     try {
       const iframeDoc = previewIframe.contentDocument;
       const videoEl = iframeDoc ? iframeDoc.getElementById('slide-video') : null;
-      const currentTime = videoEl ? videoEl.currentTime : 0;
-      socket.emit('video-control', { action: 'pause', currentTime: currentTime });
+      if (videoEl) {
+        videoEl.pause();
+        const currentTime = videoEl.currentTime;
+        socket.emit('video-control', { action: 'pause', currentTime: currentTime });
+      } else {
+        socket.emit('video-control', { action: 'pause', currentTime: 0 });
+      }
     } catch (e) {
       socket.emit('video-control', { action: 'pause', currentTime: 0 });
     }
@@ -143,6 +153,7 @@ function setupDashboard() {
       const videoEl = iframeDoc ? iframeDoc.getElementById('slide-video') : null;
       if (videoEl && !isNaN(videoEl.duration)) {
         const targetTime = (e.target.value / 100) * videoEl.duration;
+        videoEl.currentTime = targetTime;
         socket.emit('video-control', { action: 'seek', currentTime: targetTime });
       }
     } catch (err) {
