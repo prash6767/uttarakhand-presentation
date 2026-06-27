@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Caveat:wght@700&display=swap');
 
 :root {
-  --font-serif-header: 'Marcellus', serif;
+  --font-serif-header: 'Playfair Display', 'Marcellus', serif;
   --font-serif-brand: 'Cinzel', Georgia, serif;
   --font-serif-body: 'Lora', Georgia, serif;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-handwritten: 'Caveat', cursive;
   
   /* Traditional Earthen Light Palette */
   --bg-dark: #fdfbf7; /* Warm Ivory / Parchment */
-  --bg-darker: #f4eae0; /* Warm Saffron / Sand */
+  --bg-darker: #f5ede4; /* Warm Saffron / Sand */
   --text-main: #3d281a; /* Deep Espresso Brown */
   --text-muted: #7d6756; /* Clay / Weathered Ochre */
   --glass-bg: #fdfbf7; /* Earthen card panel background */
@@ -39,6 +40,12 @@ html, body {
 body {
   font-family: var(--font-serif-body);
   background-color: var(--bg-darker);
+  /* Premium subtle graph/dot grid texture */
+  background-image: 
+    radial-gradient(rgba(178, 59, 43, 0.02) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(212, 175, 55, 0.015) 1px, transparent 1px);
+  background-size: 24px 24px, 12px 12px;
+  background-position: 0 0, 12px 12px;
   color: var(--text-main);
   display: flex;
   flex-direction: column;
@@ -57,21 +64,19 @@ body {
   overflow: hidden;
 }
 
-/* Toran hanging border across the top */
+/* Elegant editorial accent line across top */
 #app::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 16px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='16' viewBox='0 0 30 16'%3E%3Cpath d='M0 0 L15 12 L30 0 Z' fill='%23b23b2b'/%3E%3Ccircle cx='15' cy='5' r='2' fill='%23d4af37'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color) 0%, #d4af37 50%, var(--accent-color) 100%);
   z-index: 1000;
   pointer-events: none;
 }
 
-/* Marigold flower corner graphic - Disabled to prevent overlapping with brand logo */
 #app::after {
   display: none !important;
 }
@@ -119,38 +124,46 @@ body {
   position: relative;
 }
 
-/* Bottom-right marigold corner graphic */
+/* Remove marigold clipart graphic */
 .slide-container::after {
-  content: '';
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 54px;
-  height: 54px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23f39c12' stroke='%23d35400' stroke-width='1'%3E%3Ccircle cx='50' cy='25' r='12'/%3E%3Ccircle cx='50' cy='75' r='12'/%3E%3Ccircle cx='25' cy='50' r='12'/%3E%3Ccircle cx='75' cy='50' r='12'/%3E%3Ccircle cx='32' cy='32' r='12'/%3E%3Ccircle cx='68' cy='68' r='12'/%3E%3Ccircle cx='32' cy='68' r='12'/%3E%3Ccircle cx='68' cy='32' r='12'/%3E%3C/g%3E%3Cg fill='%23e67e22' stroke='%23d35400' stroke-width='0.8'%3E%3Ccircle cx='50' cy='32' r='9'/%3E%3Ccircle cx='50' cy='68' r='9'/%3E%3Ccircle cx='32' cy='50' r='9'/%3E%3Ccircle cx='68' cy='50' r='9'/%3E%3Ccircle cx='37' cy='37' r='9'/%3E%3Ccircle cx='63' cy='63' r='9'/%3E%3Ccircle cx='37' cy='63' r='9'/%3E%3Ccircle cx='63' cy='37' r='9'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='15' fill='%23f1c40f' stroke='%23e67e22' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23d35400'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: 999;
-  pointer-events: none;
-  opacity: 0.9;
+  display: none !important;
 }
 
 .content-pane {
-  width: 58%;
-  height: 90%;
+  width: 56%;
+  height: 86%;
   background: #fdfbf7;
-  border: 4px double var(--accent-color);
-  box-shadow: inset 0 0 0 2px #d4af37, 0 10px 30px rgba(61, 40, 26, 0.08);
-  border-radius: 8px;
-  padding: clamp(1.5rem, 4vh, 3rem) clamp(2rem, 4vw, 3.5rem);
+  border: 1px solid rgba(61, 40, 26, 0.08);
+  box-shadow: 0 15px 35px rgba(61, 40, 26, 0.05), 0 5px 15px rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  padding: clamp(1.5rem, 4vh, 3rem) clamp(2rem, 4vw, 3.25rem);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align top to prevent clipping top content on scroll */
+  justify-content: flex-start;
   position: relative;
   z-index: 5;
-  overflow-y: auto !important; /* Enable scrolling if text exceeds fixed pane height */
+  overflow-y: auto !important;
   scrollbar-width: thin;
   scrollbar-color: rgba(178, 59, 43, 0.25) transparent;
+}
+
+/* Offset gold frame decoration around the paper sheet */
+.content-pane::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+.content-pane:hover::before {
+  transform: translate(2px, 2px);
 }
 
 .content-pane::-webkit-scrollbar {
@@ -206,48 +219,50 @@ body {
   animation: slide-up-fade 0.8s var(--easing) 0.2s forwards;
 }
 
-/* Facts / Stats Panel */
+/* Facts / Stats Panel - Editorial Stats Bar */
 .facts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(0.5rem, 1.5vw, 1.5rem);
+  gap: 1rem;
   margin-bottom: clamp(1rem, 3vh, 3rem);
   opacity: 0;
   transform: translateY(30px);
   animation: slide-up-fade 0.9s var(--easing) 0.3s forwards;
+  border-top: 1px solid rgba(178, 59, 43, 0.12);
+  border-bottom: 1px solid rgba(178, 59, 43, 0.12);
+  padding: 1.25rem 0;
 }
 
 .fact-card {
-  background: var(--bg-darker);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 10px rgba(61, 40, 26, 0.05);
-  padding: clamp(0.6rem, 1.8vh, 1.25rem);
-  border-radius: 8px;
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0 0.5rem;
+  transition: transform 0.3s ease;
+  border-right: 1px solid rgba(178, 59, 43, 0.12);
+}
+
+.fact-card:last-child {
+  border-right: none; /* No border for last card */
 }
 
 .fact-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(212, 175, 55, 0.45);
-  box-shadow: 0 6px 16px rgba(61, 40, 26, 0.12);
+  transform: translateY(-2px);
 }
 
 .fact-value {
-  font-family: var(--font-sans);
-  font-size: clamp(1.1rem, 2.5vh, 1.5rem);
+  font-family: var(--font-serif-header); /* Use editorial serif for numbers */
+  font-size: clamp(1.15rem, 2.6vh, 1.6rem);
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
 }
 
 .fact-label {
   font-family: var(--font-sans);
-  font-size: clamp(0.7rem, 1.4vh, 0.8rem);
+  font-size: clamp(0.65rem, 1.3vh, 0.75rem);
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 /* Timeline details lists */
@@ -278,14 +293,14 @@ body {
 .details-list li::before {
   content: '';
   position: absolute;
-  left: calc(-1.5rem - 6px);
-  top: 0.4em;
-  width: 10px;
-  height: 10px;
+  left: calc(-1.5rem - 5px);
+  top: 0.5em;
+  width: 8px;
+  height: 8px;
   background-color: var(--accent-color);
-  border: 2px solid #fdfbf7;
-  border-radius: 50%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  border: 1px solid #fdfbf7;
+  transform: rotate(45deg); /* Diamond shape bullet indicator */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 /* Right Pane: Media display (Floating photo panel) */
@@ -306,9 +321,9 @@ body {
   aspect-ratio: 4/3;
   background-color: #ffffff;
   border: 12px solid #ffffff;
-  border-bottom: 24px solid #ffffff;
+  border-bottom: 36px solid #ffffff; /* Thick Polaroid border */
   border-radius: 2px;
-  box-shadow: 0 12px 32px rgba(61, 40, 26, 0.12), 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 16px 40px rgba(61, 40, 26, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
   transform: rotate(1.5deg);
   opacity: 0;
   transition: transform 0.6s var(--easing), opacity 0.6s var(--easing);
@@ -320,7 +335,7 @@ body {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
-  gap: 1rem !important;
+  gap: 1.25rem !important; /* Slightly more space */
   width: 100% !important;
   height: 90% !important;
   align-items: center !important;
@@ -336,17 +351,17 @@ body {
   aspect-ratio: 4/3 !important;
   object-fit: contain !important;
   background-color: #ffffff !important;
-  border: 5px solid #ffffff !important;
-  border-bottom: 12px solid #ffffff !important;
-  border-radius: 2px !important;
-  box-shadow: 0 4px 10px rgba(61, 40, 26, 0.08) !important;
+  border: 6px solid #ffffff !important;
+  border-bottom: 22px solid #ffffff !important; /* Thick Polaroid border */
+  border-radius: 1px !important;
+  box-shadow: 0 8px 24px rgba(61, 40, 26, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03) !important;
   transition: transform 0.4s var(--easing), box-shadow 0.3s ease !important;
 }
 
 .media-pane.collage-mode .collage-photo:hover {
-  transform: scale(1.05) rotate(0deg) !important;
-  z-index: 10 !important;
-  box-shadow: 0 12px 28px rgba(61, 40, 26, 0.16) !important;
+  transform: scale(1.06) rotate(0deg) !important;
+  z-index: 100 !important;
+  box-shadow: 0 16px 36px rgba(61, 40, 26, 0.12) !important;
 }
 
 /* 2 Images: Stacked vertically on desktop (to save horizontal space) */
@@ -600,9 +615,9 @@ body {
     overflow-x: hidden !important;
     padding: 1.5rem 1.25rem !important;
     background: #fdfbf7 !important;
-    border: 3px double var(--accent-color) !important;
-    box-shadow: inset 0 0 0 1.5px #d4af37, 0 8px 24px rgba(61, 40, 26, 0.06) !important;
-    border-radius: 8px !important;
+    border: 1px solid rgba(61, 40, 26, 0.08) !important;
+    box-shadow: 0 10px 25px rgba(61, 40, 26, 0.04) !important;
+    border-radius: 6px !important;
     box-sizing: border-box;
   }
 
@@ -632,12 +647,16 @@ body {
     flex-wrap: wrap !important;
     gap: 0.5rem !important;
     margin-bottom: 1.25rem !important;
+    border-top: 1px solid rgba(178, 59, 43, 0.08) !important;
+    border-bottom: 1px solid rgba(178, 59, 43, 0.08) !important;
+    padding: 0.75rem 0 !important;
   }
   
   .fact-card {
     flex: 1 1 calc(50% - 0.5rem) !important;
     min-width: 100px !important;
     padding: 0.5rem !important;
+    border-right: none !important; /* Remove vertical divider on mobile wrap */
   }
   
   .fact-value {
@@ -890,26 +909,42 @@ body {
   }
 }
 
-/* UCEED GK Highlight Box styling */
+/* UCEED GK Highlight Box styling - Scrapbook Taped Card */
 .uceed-gk-box {
-  margin-top: clamp(1rem, 2.5vh, 2.5rem);
-  background: rgba(30, 25, 21, 0.65);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-left: 4px solid var(--accent-color);
+  margin-top: clamp(1.25rem, 3vh, 3rem);
+  background: #f7f2ea;
+  border: 1px dashed rgba(178, 59, 43, 0.25);
   padding: clamp(0.75rem, 1.8vh, 1.25rem) clamp(1rem, 2vw, 1.5rem);
-  border-radius: 4px 12px 12px 4px;
+  border-radius: 4px;
   font-family: var(--font-serif-body);
   font-size: clamp(0.8rem, 1.7vh, 0.95rem);
-  line-height: 1.5;
-  color: #f5eee6;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  line-height: 1.6;
+  color: var(--text-main);
+  box-shadow: 0 8px 24px rgba(61, 40, 26, 0.04);
   animation: slide-up-fade 1.1s var(--easing) 0.5s forwards;
   opacity: 0;
   transform: translateY(20px);
+  position: relative;
+}
+
+/* Washi-tape decoration at the top of the UCEED GK box */
+.uceed-gk-box::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 70px;
+  height: 18px;
+  background: rgba(212, 175, 55, 0.22); /* Semi-transparent gold tape */
+  backdrop-filter: blur(1px);
+  border-left: 1px dashed rgba(212, 175, 55, 0.4);
+  border-right: 1px dashed rgba(212, 175, 55, 0.4);
+  pointer-events: none;
 }
 
 .uceed-gk-box strong {
-  color: #d4af37; /* Warm Gold highlight */
+  color: var(--accent-color); /* Highlight text matches theme terracotta */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
