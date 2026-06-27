@@ -44,7 +44,8 @@ const slides = [
     description: "Uttarakhand is a sanctuary of pristine nature and ancient heritage. Its inhabitants, collectively addressed as Pahadi, live in harmony with the grandeur and integrity of mother nature.",
     images: [
       "/assets/images/welcome_hero.png",
-      "/images/ganga-aarti.png"
+      "/images/ganga-aarti.png",
+      "/assets/images/valley_of_flowers.png"
     ],
     accentColor: "#b23b2b",
     facts: [
@@ -65,8 +66,7 @@ const slides = [
     subtitle: "Glaciers, Peaks & Boundaries",
     description: "Situated in the northwestern Himalayas, Uttarakhand borders Nepal to the east, Himachal Pradesh to the northwest, and Tibet to the north, creating a strategic frontier region.",
     images: [
-      "/assets/images/himalayan_peaks.png",
-      "/images/himalayan-blue-sheep-bharal.png"
+      "/assets/images/himalayan_peaks.png"
     ],
     accentColor: "#465a65",
     facts: [
@@ -119,7 +119,7 @@ const slides = [
     images: [
       "/images/snow-leopard-himalayas.png",
       "/images/asiatic-black-bears.png",
-      "/assets/images/valley_of_flowers.png"
+      "/images/himalayan-blue-sheep-bharal.png"
     ],
     accentColor: "#2c5e3b",
     facts: [
