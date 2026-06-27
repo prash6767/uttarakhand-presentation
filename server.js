@@ -213,6 +213,28 @@ const slides = [
     imageOnly: true
   },
   {
+    id: "regional-languages",
+    title: "Regional Languages",
+    subtitle: "Linguistic Tapestry of the Hills",
+    description: "The heart of Uttarakhand's identity lies in its regional languages, Indo-Aryan tongues with rich traditions of folk literature, storytelling, and tribal oral histories.",
+    images: [
+      "/images/rg1.png",
+      "/images/rg2.png"
+    ],
+    accentColor: "#a05a2c",
+    facts: [
+      { label: "Primary Dialects", value: "Garhwali & Kumaoni" },
+      { label: "Official Language", value: "Hindi (Most Spoken)" },
+      { label: "Classical Root", value: "Sanskrit (taught/texts)" }
+    ],
+    details: [
+      "Garhwali and Kumaoni are Indo-Aryan languages with rich traditions of folk literature, songs, and storytelling.",
+      "Tribal areas preserve unique cultural narratives in dialects like Jaunsari, Bhoti, and Rang.",
+      "Urdu, Punjabi, and English are spoken in urban centers and by specific local communities."
+    ],
+    uceedGK: "🎓 <strong>UCEED GK:</strong> Garhwali and Kumaoni are the primary regional languages. Sanskrit is recognized as the state's second official language, largely studied in ancient texts."
+  },
+  {
     id: "events",
     title: "Festivals & Seasonal Events",
     subtitle: "Monsoon Seeds & Spring Wildflowers",
