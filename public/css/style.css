@@ -355,8 +355,8 @@ body {
 }
 
 .media-pane.collage-mode.count-2 .collage-photo {
-  width: 70% !important; /* Fixed width for vertical stack to ensure equal sizes */
-  max-height: 42% !important;
+  width: 52% !important; /* Narrower width to ensure correct proportions */
+  max-height: none !important; /* Force aspect ratio constraint */
 }
 
 .media-pane.collage-mode.count-2 .collage-photo.photo-pos-1 {
@@ -370,7 +370,7 @@ body {
 /* 3 Images: 2 on first row, 1 on second row (centered) */
 .media-pane.collage-mode.count-3 .collage-photo {
   width: 44% !important; /* Fixed width to ensure equal sizes */
-  max-height: 42% !important;
+  max-height: none !important; /* Force aspect ratio constraint */
 }
 
 .media-pane.collage-mode.count-3 .collage-photo.photo-pos-1 {
@@ -388,7 +388,7 @@ body {
 /* 4 Images: 2x2 grid (2 on first row, 2 on second row) */
 .media-pane.collage-mode.count-4 .collage-photo {
   width: 44% !important; /* Fixed width to ensure equal sizes */
-  max-height: 42% !important;
+  max-height: none !important; /* Force aspect ratio constraint */
 }
 
 .media-pane.collage-mode.count-4 .collage-photo.photo-pos-1 {
