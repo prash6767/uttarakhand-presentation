@@ -690,6 +690,15 @@ body {
     flex-direction: row !important; /* Keep 2 images side-by-side on mobile */
   }
 
+  .media-pane.collage-mode.count-2 .collage-photo,
+  .media-pane.collage-mode.count-3 .collage-photo,
+  .media-pane.collage-mode.count-4 .collage-photo {
+    width: 45% !important;
+    max-width: 45% !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
   .media-pane.collage-mode .collage-photo {
     position: relative !important;
     width: 45% !important; /* Equal sizing for all photos on mobile */
