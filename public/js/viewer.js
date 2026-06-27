@@ -186,10 +186,11 @@ function renderSlide(slide) {
     parent.classList.remove('count-2', 'count-3', 'count-4');
     parent.classList.add(`count-${slide.images.length}`);
     
-    // Render as clean collage grid cells
+    // Render as small scattered photos
     slide.images.forEach((imgSrc, index) => {
       const imgEl = document.createElement('img');
       imgEl.className = 'slide-image collage-photo';
+      imgEl.classList.add(`photo-pos-${index + 1}`);
       imgEl.alt = `${slide.title} - Image ${index + 1}`;
       imgEl.src = imgSrc;
       

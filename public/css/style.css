@@ -299,54 +299,62 @@ body {
   animation: zoom-out-fade 1.2s var(--easing) forwards;
 }
 
-/* Clean Grid/Mosaic collage layout on desktop */
+/* Scattered scrapbook photo layout on desktop (small size, slightly tilted, cascading down) */
 .media-pane.collage-mode {
-  display: grid !important;
-  gap: 1.25rem !important;
+  position: relative !important;
+  display: block !important;
   width: 100% !important;
-  height: 90% !important;
-  box-sizing: border-box !important;
+  height: 95% !important;
+  overflow: visible !important;
 }
 
 .media-pane.collage-mode .collage-photo {
-  position: relative !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
+  position: absolute !important;
+  width: 220px !important; /* Small size as requested */
+  height: auto !important;
+  aspect-ratio: 4/3 !important;
   object-fit: cover !important;
   border: 6px solid #ffffff !important;
-  border-bottom: 12px solid #ffffff !important;
-  border-radius: 4px !important;
-  box-shadow: 0 8px 20px rgba(61, 40, 26, 0.08) !important;
-  transform: none !important;
-  transition: transform 0.3s var(--easing), box-shadow 0.3s var(--easing) !important;
+  border-bottom: 14px solid #ffffff !important;
+  border-radius: 2px !important;
+  box-shadow: 0 6px 14px rgba(61, 40, 26, 0.08) !important;
+  transition: transform 0.4s var(--easing), z-index 0.2s ease, box-shadow 0.3s ease !important;
+  transform: none;
 }
 
 .media-pane.collage-mode .collage-photo:hover {
-  transform: scale(1.03) !important;
-  z-index: 10 !important;
-  box-shadow: 0 12px 28px rgba(61, 40, 26, 0.16) !important;
+  transform: scale(1.08) rotate(0deg) !important;
+  z-index: 100 !important;
+  box-shadow: 0 14px 32px rgba(61, 40, 26, 0.18) !important;
 }
 
-/* Grid layout configurations based on image count */
-.media-pane.collage-mode.count-2 {
-  grid-template-rows: 1fr 1fr !important;
-  grid-template-columns: 1fr !important;
+/* Scattered positions: staggered vertically, slightly tilted */
+.media-pane.collage-mode .collage-photo.photo-pos-1 {
+  top: 6% !important;
+  left: 6% !important;
+  transform: rotate(-3deg) !important;
+  z-index: 1 !important;
 }
 
-.media-pane.collage-mode.count-3 {
-  grid-template-rows: 1.1fr 1fr !important;
-  grid-template-columns: 1fr 1fr !important;
+.media-pane.collage-mode .collage-photo.photo-pos-2 {
+  top: 36% !important;
+  right: 6% !important;
+  transform: rotate(4deg) !important;
+  z-index: 2 !important;
 }
 
-.media-pane.collage-mode.count-3 .collage-photo:first-child {
-  grid-column: span 2 !important;
+.media-pane.collage-mode .collage-photo.photo-pos-3 {
+  bottom: 6% !important;
+  left: 10% !important;
+  transform: rotate(-2deg) !important;
+  z-index: 3 !important;
 }
 
-.media-pane.collage-mode.count-4 {
-  grid-template-rows: 1fr 1fr !important;
-  grid-template-columns: 1fr 1fr !important;
+.media-pane.collage-mode .collage-photo.photo-pos-4 {
+  bottom: 24% !important;
+  right: 10% !important;
+  transform: rotate(3deg) !important;
+  z-index: 4 !important;
 }
 
 .media-overlay {
