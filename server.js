@@ -294,7 +294,7 @@ const slides = [
     subtitle: "Biosphere Sanctuaries & Masked Dramas",
     description: "Uttarakhand hosts three UNESCO-recognized heritage items, highlighting the state's global ecological importance and preserved performing art traditions.",
     images: [
-      "/images/himalayan-blue-poppy.png",
+      "/images/nanda-devi.jpeg",
       "/images/ramman-theater-actors.png",
       "/images/jageshwar-dham-temples.png"
     ],
