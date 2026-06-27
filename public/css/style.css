@@ -674,28 +674,36 @@ body {
   .media-pane.collage-mode {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: flex-start !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 1rem !important;
+    flex-wrap: wrap !important; /* Enable wrapping grid on mobile */
+    justify-content: center !important; /* Center grid items horizontally */
+    gap: 0.75rem !important; /* Spacing between photos */
     padding: 0.5rem !important;
+    overflow: visible !important; /* No scrollbars on mobile */
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .media-pane.collage-mode.count-2 {
+    flex-direction: row !important; /* Keep 2 images side-by-side on mobile */
   }
 
   .media-pane.collage-mode .collage-photo {
     position: relative !important;
-    flex: 0 0 70% !important;
-    max-width: 70% !important;
-    height: 180px !important;
+    width: 45% !important; /* Equal sizing for all photos on mobile */
+    max-width: 45% !important;
+    height: auto !important;
+    aspect-ratio: 4/3 !important;
     object-fit: cover !important;
-    scroll-snap-align: center;
-    transform: none !important;
     margin: 0 !important;
-    border: 6px solid #ffffff !important;
-    border-bottom: 14px solid #ffffff !important;
-    box-shadow: 0 6px 14px rgba(61, 40, 26, 0.08) !important;
+    border: 5px solid #ffffff !important;
+    border-bottom: 12px solid #ffffff !important;
+    box-shadow: 0 4px 10px rgba(61, 40, 26, 0.08) !important;
     opacity: 1 !important;
     animation: none !important;
+    transform: none !important; /* Reset tilts for clean grid on mobile */
   }
 
   .brand-watermark {
