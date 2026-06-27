@@ -331,7 +331,7 @@ body {
 .media-pane.collage-mode .collage-photo {
   position: relative !important;
   height: auto !important;
-  width: auto !important;
+  width: 44% !important; /* Default fixed width for grid layout to ensure equal sizes */
   aspect-ratio: 4/3 !important;
   object-fit: cover !important;
   border: 5px solid #ffffff !important;
@@ -353,7 +353,7 @@ body {
 }
 
 .media-pane.collage-mode.count-2 .collage-photo {
-  max-width: 90% !important;
+  width: 70% !important; /* Fixed width for vertical stack to ensure equal sizes */
   max-height: 42% !important;
 }
 
@@ -367,7 +367,7 @@ body {
 
 /* 3 Images: 2 on first row, 1 on second row (centered) */
 .media-pane.collage-mode.count-3 .collage-photo {
-  max-width: 44% !important;
+  width: 44% !important; /* Fixed width to ensure equal sizes */
   max-height: 42% !important;
 }
 
@@ -385,7 +385,7 @@ body {
 
 /* 4 Images: 2x2 grid (2 on first row, 2 on second row) */
 .media-pane.collage-mode.count-4 .collage-photo {
-  max-width: 44% !important;
+  width: 44% !important; /* Fixed width to ensure equal sizes */
   max-height: 42% !important;
 }
 
