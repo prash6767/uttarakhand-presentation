@@ -112,16 +112,34 @@ body {
   100% { transform: scale(1.08) translate(1%, 1%); }
 }
 
-/* Slide Container & Animations */
+/* Slide Container & Animations - Presentation Board Canvas */
 .slide-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  padding: clamp(2rem, 5vh, 4rem) clamp(3rem, 6vw, 6rem);
-  z-index: 10;
+  width: 90% !important;
+  height: 85% !important;
+  background: #fdfbf7 !important;
+  border: 1px solid rgba(61, 40, 26, 0.08) !important;
+  box-shadow: 0 20px 50px rgba(61, 40, 26, 0.05) !important;
+  border-radius: 8px !important;
+  padding: clamp(2rem, 4vh, 3.5rem) clamp(2.5rem, 4vw, 4rem) !important;
   position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block !important; /* Enable absolute positioning context inside */
+}
+
+/* Inner offset gold border frame decorations around the entire slide board */
+.slide-container::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Remove marigold clipart graphic */
@@ -130,40 +148,18 @@ body {
 }
 
 .content-pane {
-  width: 56%;
-  height: 86%;
-  background: #fdfbf7;
-  border: 1px solid rgba(61, 40, 26, 0.08);
-  box-shadow: 0 15px 35px rgba(61, 40, 26, 0.05), 0 5px 15px rgba(0, 0, 0, 0.02);
-  border-radius: 6px;
-  padding: clamp(1.5rem, 4vh, 3rem) clamp(2rem, 4vw, 3.25rem);
-  display: flex;
-  flex-direction: column;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
   justify-content: flex-start;
   position: relative;
   z-index: 5;
-  overflow-y: auto !important;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(178, 59, 43, 0.25) transparent;
-}
-
-/* Offset gold frame decoration around the paper sheet */
-.content-pane::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  border-radius: 8px;
-  pointer-events: none;
-  z-index: -1;
-  transition: transform 0.3s ease;
-}
-
-.content-pane:hover::before {
-  transform: translate(2px, 2px);
+  overflow: visible !important;
 }
 
 .content-pane::-webkit-scrollbar {
@@ -180,12 +176,12 @@ body {
 }
 
 .slide-subtitle {
-  font-size: clamp(0.85rem, 1.8vh, 1.1rem);
+  font-size: clamp(0.75rem, 1.6vh, 0.95rem) !important;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--accent-color);
-  margin-bottom: clamp(0.4rem, 1vh, 1rem);
+  margin-bottom: 0.25rem !important;
   opacity: 0;
   transform: translateY(20px);
   animation: slide-up-fade 0.6s var(--easing) forwards;
@@ -193,38 +189,30 @@ body {
 
 .slide-title {
   font-family: var(--font-serif-header);
-  font-size: clamp(2rem, 6.5vh, 4.5rem);
+  font-size: clamp(1.8rem, 5vh, 3.2rem) !important; /* Elegant presentation title size */
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin-bottom: clamp(0.75rem, 2vh, 2rem);
+  margin-bottom: clamp(1rem, 2.5vh, 2rem) !important;
   background: linear-gradient(135deg, #3d281a 0%, #6d4b35 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0;
   transform: translateY(30px);
   animation: slide-up-fade 0.7s var(--easing) 0.1s forwards;
+  max-width: 85%;
 }
 
 .slide-description {
-  font-family: var(--font-serif-body);
-  font-size: clamp(0.95rem, 2.2vh, 1.25rem);
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-muted);
-  margin-bottom: clamp(0.75rem, 2.5vh, 2.5rem);
-  max-width: 600px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: slide-up-fade 0.8s var(--easing) 0.2s forwards;
+  display: none !important; /* Hide description paragraph on desktop for clean key-points slide look */
 }
 
 /* Facts / Stats Panel - Editorial Stats Bar */
 .facts-grid {
+  width: 54% !important; /* Constrain width to left column of landscape board */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-bottom: clamp(1rem, 3vh, 3rem);
+  margin-bottom: clamp(1.25rem, 3vh, 3rem);
   opacity: 0;
   transform: translateY(30px);
   animation: slide-up-fade 0.9s var(--easing) 0.3s forwards;
@@ -267,6 +255,7 @@ body {
 
 /* Timeline details lists */
 .details-list {
+  width: 54% !important; /* Constrain width to left column of landscape board */
   list-style: none;
   position: relative;
   padding-left: 1.5rem;
@@ -275,6 +264,7 @@ body {
   opacity: 0;
   transform: translateY(30px);
   animation: slide-up-fade 1s var(--easing) 0.4s forwards;
+  margin-bottom: 1.5rem !important;
 }
 
 .details-list li {
@@ -303,15 +293,18 @@ body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
-/* Right Pane: Media display (Floating photo panel) */
+/* Right Pane: Media display (Floating photo panel positioned absolutely inside slide board) */
 .media-pane {
-  width: 38%;
-  height: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: visible;
+  position: absolute !important;
+  right: clamp(2.5rem, 4vw, 4rem) !important;
+  top: clamp(6.5rem, 12vh, 8.5rem) !important;
+  width: 40% !important;
+  height: calc(100% - clamp(9rem, 18vh, 11rem)) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+  overflow: visible !important;
 }
 
 .slide-image {
@@ -672,6 +665,9 @@ body {
   }
   
   .media-pane {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
     width: 100% !important;
     height: auto !important;
     min-height: 220px !important;
@@ -680,6 +676,8 @@ body {
     align-items: center !important;
     justify-content: center !important;
     margin-bottom: 0.5rem !important;
+    z-index: 10 !important;
+    overflow: visible !important;
   }
 
   .slide-image {
@@ -803,10 +801,11 @@ body {
     margin-bottom: 0.4rem;
   }
   .uceed-gk-box {
-    margin-top: 1rem;
-    padding: 0.75rem 1.25rem;
-    font-size: 0.85rem;
-    line-height: 1.4;
+    width: 100% !important; /* Stretch to full width on mobile screens */
+    margin-top: 1rem !important;
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
   }
 }
 
@@ -846,6 +845,19 @@ body {
 .slide-container.full-media {
   padding: 0 !important;
   gap: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  background: #000000 !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.slide-container.full-media::before {
+  display: none !important; /* Hide gold frame border */
 }
 
 .slide-container.full-media::after {
@@ -882,7 +894,9 @@ body {
 
 /* Image-only slide layout (e.g. memes) */
 .slide-container.image-only {
+  display: flex !important;
   justify-content: center !important;
+  align-items: center !important;
 }
 
 .slide-container.image-only .content-pane {
@@ -890,6 +904,9 @@ body {
 }
 
 .slide-container.image-only .media-pane {
+  position: relative !important;
+  right: auto !important;
+  top: auto !important;
   width: min(600px, 60%) !important;
   height: 85% !important;
 }
@@ -911,7 +928,8 @@ body {
 
 /* UCEED GK Highlight Box styling - Scrapbook Taped Card */
 .uceed-gk-box {
-  margin-top: clamp(1.25rem, 3vh, 3rem);
+  width: 54% !important; /* Constrain width to left column of landscape board */
+  margin-top: clamp(1rem, 2vh, 2rem) !important;
   background: #f7f2ea;
   border: 1px dashed rgba(178, 59, 43, 0.25);
   padding: clamp(0.75rem, 1.8vh, 1.25rem) clamp(1rem, 2vw, 1.5rem);
