@@ -299,62 +299,88 @@ body {
   animation: zoom-out-fade 1.2s var(--easing) forwards;
 }
 
-/* Scattered scrapbook photo layout on desktop (small size, slightly tilted, cascading down) */
+/* Clean side-by-side (2 photos) or vertical stack (3/4 photos) layout inside media-pane */
 .media-pane.collage-mode {
-  position: relative !important;
-  display: block !important;
+  display: flex !important;
+  gap: 1rem !important;
   width: 100% !important;
-  height: 95% !important;
-  overflow: visible !important;
+  height: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Arrange 2 images side-by-side horizontally */
+.media-pane.collage-mode.count-2 {
+  flex-direction: row !important;
+}
+
+.media-pane.collage-mode.count-2 .collage-photo {
+  max-width: 48% !important;
+  max-height: 90% !important;
+}
+
+.media-pane.collage-mode.count-2 .collage-photo.photo-pos-1 {
+  transform: rotate(-1.5deg) !important;
+}
+
+.media-pane.collage-mode.count-2 .collage-photo.photo-pos-2 {
+  transform: rotate(1.5deg) !important;
+}
+
+/* Arrange 3 or 4 images stacked vertically */
+.media-pane.collage-mode.count-3,
+.media-pane.collage-mode.count-4 {
+  flex-direction: column !important;
+}
+
+.media-pane.collage-mode.count-3 .collage-photo {
+  max-height: 29% !important;
+  max-width: 90% !important;
+}
+
+.media-pane.collage-mode.count-4 .collage-photo {
+  max-height: 22% !important;
+  max-width: 90% !important;
 }
 
 .media-pane.collage-mode .collage-photo {
-  position: absolute !important;
-  width: 220px !important; /* Small size as requested */
+  position: relative !important;
   height: auto !important;
+  width: auto !important;
   aspect-ratio: 4/3 !important;
   object-fit: cover !important;
   border: 6px solid #ffffff !important;
   border-bottom: 14px solid #ffffff !important;
   border-radius: 2px !important;
   box-shadow: 0 6px 14px rgba(61, 40, 26, 0.08) !important;
-  transition: transform 0.4s var(--easing), z-index 0.2s ease, box-shadow 0.3s ease !important;
-  transform: none;
+  transition: transform 0.4s var(--easing), box-shadow 0.3s ease !important;
 }
 
 .media-pane.collage-mode .collage-photo:hover {
-  transform: scale(1.08) rotate(0deg) !important;
-  z-index: 100 !important;
-  box-shadow: 0 14px 32px rgba(61, 40, 26, 0.18) !important;
+  transform: scale(1.05) rotate(0deg) !important;
+  z-index: 10 !important;
+  box-shadow: 0 12px 28px rgba(61, 40, 26, 0.16) !important;
 }
 
-/* Scattered positions: staggered vertically, slightly tilted */
-.media-pane.collage-mode .collage-photo.photo-pos-1 {
-  top: 6% !important;
-  left: 6% !important;
-  transform: rotate(-3deg) !important;
-  z-index: 1 !important;
+/* Staggered slight tilts for vertical stack */
+.media-pane.collage-mode.count-3 .collage-photo.photo-pos-1,
+.media-pane.collage-mode.count-4 .collage-photo.photo-pos-1 {
+  transform: rotate(-1deg) !important;
 }
 
-.media-pane.collage-mode .collage-photo.photo-pos-2 {
-  top: 36% !important;
-  right: 6% !important;
-  transform: rotate(4deg) !important;
-  z-index: 2 !important;
+.media-pane.collage-mode.count-3 .collage-photo.photo-pos-2,
+.media-pane.collage-mode.count-4 .collage-photo.photo-pos-2 {
+  transform: rotate(1.2deg) !important;
 }
 
-.media-pane.collage-mode .collage-photo.photo-pos-3 {
-  bottom: 6% !important;
-  left: 10% !important;
-  transform: rotate(-2deg) !important;
-  z-index: 3 !important;
+.media-pane.collage-mode.count-3 .collage-photo.photo-pos-3,
+.media-pane.collage-mode.count-4 .collage-photo.photo-pos-3 {
+  transform: rotate(-0.8deg) !important;
 }
 
-.media-pane.collage-mode .collage-photo.photo-pos-4 {
-  bottom: 24% !important;
-  right: 10% !important;
-  transform: rotate(3deg) !important;
-  z-index: 4 !important;
+.media-pane.collage-mode.count-4 .collage-photo.photo-pos-4 {
+  transform: rotate(1deg) !important;
 }
 
 .media-overlay {
