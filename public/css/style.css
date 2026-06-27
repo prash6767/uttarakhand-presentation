@@ -302,8 +302,9 @@ body {
 .slide-image {
   max-width: 100%;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   aspect-ratio: 4/3;
+  background-color: #ffffff;
   border: 12px solid #ffffff;
   border-bottom: 24px solid #ffffff;
   border-radius: 2px;
@@ -333,7 +334,8 @@ body {
   height: auto !important;
   width: 44% !important; /* Default fixed width for grid layout to ensure equal sizes */
   aspect-ratio: 4/3 !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
+  background-color: #ffffff !important;
   border: 5px solid #ffffff !important;
   border-bottom: 12px solid #ffffff !important;
   border-radius: 2px !important;
@@ -705,7 +707,8 @@ body {
     max-width: 45% !important;
     height: auto !important;
     aspect-ratio: 4/3 !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
+    background-color: #ffffff !important;
     margin: 0 !important;
     border: 5px solid #ffffff !important;
     border-bottom: 12px solid #ffffff !important;
