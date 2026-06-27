@@ -30,12 +30,10 @@
 
 html, body {
   width: 100%;
-  min-height: 100%;
-  height: auto;
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
+  overflow: hidden !important;
 }
 
 body {
@@ -53,11 +51,10 @@ body {
 #app {
   width: 100%;
   max-width: 100%;
-  min-height: 100vh;
-  height: auto;
+  height: 100%;
   display: flex;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 /* Toran hanging border across the top */
@@ -116,12 +113,10 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-height: 100vh;
-  height: auto;
-  padding: clamp(4rem, 6vh, 6rem) clamp(3rem, 6vw, 6rem);
+  height: 100%;
+  padding: clamp(2rem, 5vh, 4rem) clamp(3rem, 6vw, 6rem);
   z-index: 10;
   position: relative;
-  box-sizing: border-box;
 }
 
 /* Bottom-right marigold corner graphic */
@@ -142,8 +137,7 @@ body {
 
 .content-pane {
   width: 58%;
-  height: auto !important;
-  min-height: 80vh !important;
+  height: 90%;
   background: #fdfbf7;
   border: 4px double var(--accent-color);
   box-shadow: inset 0 0 0 2px #d4af37, 0 10px 30px rgba(61, 40, 26, 0.08);
@@ -151,10 +145,25 @@ body {
   padding: clamp(1.5rem, 4vh, 3rem) clamp(2rem, 4vw, 3.5rem);
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically inside the card */
+  justify-content: flex-start; /* Align top to prevent clipping top content on scroll */
   position: relative;
   z-index: 5;
-  overflow-y: visible !important; /* Hide internal scrollbars as requested */
+  overflow-y: auto !important; /* Enable scrolling if text exceeds fixed pane height */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(178, 59, 43, 0.25) transparent;
+}
+
+.content-pane::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content-pane::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content-pane::-webkit-scrollbar-thumb {
+  background-color: rgba(178, 59, 43, 0.25);
+  border-radius: 10px;
 }
 
 .slide-subtitle {
@@ -282,8 +291,7 @@ body {
 /* Right Pane: Media display (Floating photo panel) */
 .media-pane {
   width: 38%;
-  height: auto !important;
-  min-height: 80vh !important;
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -313,8 +321,7 @@ body {
   flex-wrap: wrap !important;
   gap: 1rem !important;
   width: 100% !important;
-  height: auto !important;
-  min-height: 80vh !important;
+  height: 90% !important;
   align-items: center !important;
   justify-content: center !important;
   box-sizing: border-box !important;
@@ -340,10 +347,14 @@ body {
   box-shadow: 0 12px 28px rgba(61, 40, 26, 0.16) !important;
 }
 
-/* 2 Images: Side-by-side on one row */
+/* 2 Images: Stacked vertically on desktop (to save horizontal space) */
+.media-pane.collage-mode.count-2 {
+  flex-direction: column !important;
+}
+
 .media-pane.collage-mode.count-2 .collage-photo {
-  max-width: 44% !important;
-  max-height: 80% !important;
+  max-width: 90% !important;
+  max-height: 42% !important;
 }
 
 .media-pane.collage-mode.count-2 .collage-photo.photo-pos-1 {
@@ -436,7 +447,7 @@ body {
 
 /* Interactive Watermark / Logo */
 .brand-watermark {
-  position: fixed;
+  position: absolute;
   top: 1.5rem;
   left: 1.5rem;
   z-index: 1000;
@@ -469,7 +480,7 @@ body {
 
 /* Connection Status indicator */
 .connection-status {
-  position: fixed;
+  position: absolute;
   top: 2rem;
   right: 2rem;
   z-index: 100;
