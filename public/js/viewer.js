@@ -183,24 +183,15 @@ function renderSlide(slide) {
     }
   } else if (slide.images && slide.images.length > 0) {
     parent.classList.add('collage-mode');
-    // Render as a scrapbook collage pile
+    parent.classList.remove('count-2', 'count-3', 'count-4');
+    parent.classList.add(`count-${slide.images.length}`);
+    
+    // Render as clean collage grid cells
     slide.images.forEach((imgSrc, index) => {
       const imgEl = document.createElement('img');
       imgEl.className = 'slide-image collage-photo';
       imgEl.alt = `${slide.title} - Image ${index + 1}`;
       imgEl.src = imgSrc;
-      
-      // Deterministic scrapbook collage offsets
-      const rotations = [2.5, -3.5, 1.8, -2];
-      const xOffsets = [10, -12, 18, -8];
-      const yOffsets = [-8, 12, -10, 15];
-      
-      const rot = rotations[index % rotations.length];
-      const tx = xOffsets[index % xOffsets.length];
-      const ty = yOffsets[index % yOffsets.length];
-      
-      imgEl.style.transform = `translate(${tx}px, ${ty}px) rotate(${rot}deg)`;
-      imgEl.style.zIndex = index + 1;
       
       parent.appendChild(imgEl);
     });

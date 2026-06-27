@@ -299,18 +299,54 @@ body {
   animation: zoom-out-fade 1.2s var(--easing) forwards;
 }
 
-/* Scrapbook photo collage pile */
-.media-pane .collage-photo {
-  position: absolute;
-  max-width: 82% !important;
-  max-height: 82% !important;
-  transition: transform 0.4s var(--easing), opacity 0.6s var(--easing), z-index 0.2s ease, box-shadow 0.3s ease !important;
+/* Clean Grid/Mosaic collage layout on desktop */
+.media-pane.collage-mode {
+  display: grid !important;
+  gap: 1.25rem !important;
+  width: 100% !important;
+  height: 90% !important;
+  box-sizing: border-box !important;
 }
 
-.media-pane .collage-photo:hover {
-  transform: scale(1.06) rotate(0deg) !important;
-  z-index: 100 !important;
-  box-shadow: 0 18px 40px rgba(61, 40, 26, 0.22) !important;
+.media-pane.collage-mode .collage-photo {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  border: 6px solid #ffffff !important;
+  border-bottom: 12px solid #ffffff !important;
+  border-radius: 4px !important;
+  box-shadow: 0 8px 20px rgba(61, 40, 26, 0.08) !important;
+  transform: none !important;
+  transition: transform 0.3s var(--easing), box-shadow 0.3s var(--easing) !important;
+}
+
+.media-pane.collage-mode .collage-photo:hover {
+  transform: scale(1.03) !important;
+  z-index: 10 !important;
+  box-shadow: 0 12px 28px rgba(61, 40, 26, 0.16) !important;
+}
+
+/* Grid layout configurations based on image count */
+.media-pane.collage-mode.count-2 {
+  grid-template-rows: 1fr 1fr !important;
+  grid-template-columns: 1fr !important;
+}
+
+.media-pane.collage-mode.count-3 {
+  grid-template-rows: 1.1fr 1fr !important;
+  grid-template-columns: 1fr 1fr !important;
+}
+
+.media-pane.collage-mode.count-3 .collage-photo:first-child {
+  grid-column: span 2 !important;
+}
+
+.media-pane.collage-mode.count-4 {
+  grid-template-rows: 1fr 1fr !important;
+  grid-template-columns: 1fr 1fr !important;
 }
 
 .media-overlay {
@@ -577,6 +613,8 @@ body {
 
   /* Specific styles when rendering multiple collage photos in collage-mode on mobile */
   .media-pane.collage-mode {
+    display: flex !important;
+    flex-direction: row !important;
     justify-content: flex-start !important;
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
