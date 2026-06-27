@@ -159,12 +159,13 @@ function renderSlide(slide) {
     });
   }
 
-  // Slide Media (Image or Video)
+  // Slide Media (Image or Video or Collage)
   // Remove existing media first to reset animations/state
   const parent = slideImageEl ? slideImageEl.parentElement : document.querySelector('.media-pane');
   parent.innerHTML = '';
   
   if (slide.video) {
+    parent.classList.remove('collage-mode');
     const videoEl = document.createElement('video');
     videoEl.id = 'slide-video';
     videoEl.className = 'slide-image';
@@ -180,7 +181,33 @@ function renderSlide(slide) {
     if (currentVideoState) {
       syncVideo(currentVideoState);
     }
+  } else if (slide.images && slide.images.length > 0) {
+    parent.classList.add('collage-mode');
+    // Render as a scrapbook collage pile
+    slide.images.forEach((imgSrc, index) => {
+      const imgEl = document.createElement('img');
+      imgEl.className = 'slide-image collage-photo';
+      imgEl.alt = `${slide.title} - Image ${index + 1}`;
+      imgEl.src = imgSrc;
+      
+      // Deterministic scrapbook collage offsets
+      const rotations = [2.5, -3.5, 1.8, -2];
+      const xOffsets = [10, -12, 18, -8];
+      const yOffsets = [-8, 12, -10, 15];
+      
+      const rot = rotations[index % rotations.length];
+      const tx = xOffsets[index % xOffsets.length];
+      const ty = yOffsets[index % yOffsets.length];
+      
+      imgEl.style.transform = `translate(${tx}px, ${ty}px) rotate(${rot}deg)`;
+      imgEl.style.zIndex = index + 1;
+      
+      parent.appendChild(imgEl);
+    });
+    // Set slideImageEl reference to the first image to prevent references from breaking
+    slideImageEl = parent.querySelector('.slide-image');
   } else {
+    parent.classList.remove('collage-mode');
     const newImg = document.createElement('img');
     newImg.id = 'slide-image';
     newImg.className = 'slide-image';

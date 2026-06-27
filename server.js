@@ -42,7 +42,10 @@ const slides = [
     title: "Uttarakhand Overview",
     subtitle: "Devbhoomi — The Land of the Gods",
     description: "Uttarakhand is a sanctuary of pristine nature and ancient heritage. Its inhabitants, collectively addressed as Pahadi, live in harmony with the grandeur and integrity of mother nature.",
-    image: "/assets/images/welcome_hero.png",
+    images: [
+      "/assets/images/welcome_hero.png",
+      "/images/ganga-aarti.png"
+    ],
     accentColor: "#b23b2b",
     facts: [
       { label: "Capital", value: "Dehradun / Gairsain" },
@@ -61,7 +64,10 @@ const slides = [
     title: "Himalayan Geography",
     subtitle: "Glaciers, Peaks & Boundaries",
     description: "Situated in the northwestern Himalayas, Uttarakhand borders Nepal to the east, Himachal Pradesh to the northwest, and Tibet to the north, creating a strategic frontier region.",
-    image: "/assets/images/himalayan_peaks.png",
+    images: [
+      "/assets/images/himalayan_peaks.png",
+      "/images/himalayan-blue-sheep-bharal.png"
+    ],
     accentColor: "#465a65",
     facts: [
       { label: "Glaciers", value: "More than 900" },
@@ -87,7 +93,11 @@ const slides = [
     title: "Himalayan Biodiversity",
     subtitle: "Flora & Fauna",
     description: "Uttarakhand boasts a highly diverse ecosystem that shifts dramatically with its varying altitudes, creating distinct tropical, temperate, and sub-alpine zones.",
-    image: "/assets/images/valley_of_flowers.png",
+    images: [
+      "/images/himalayan-monal-state-bird.png",
+      "/images/himalayan-musk-deer.png",
+      "/images/brahma-kamal-flower-bloom.png"
+    ],
     accentColor: "#2c5e3b",
     facts: [
       { label: "State Bird", value: "Himalayan Monal" },
@@ -106,7 +116,11 @@ const slides = [
     title: "Wildlife Sanctuaries",
     subtitle: "Jim Corbett & Biosphere Reserves",
     description: "Uttarakhand is a global focal point for wildlife conservation, hosting India's oldest national park and massive high-altitude sanctuaries that protect endangered species.",
-    image: "/assets/images/valley_of_flowers.png",
+    images: [
+      "/images/snow-leopard-himalayas.png",
+      "/images/asiatic-black-bears.png",
+      "/assets/images/valley_of_flowers.png"
+    ],
     accentColor: "#2c5e3b",
     facts: [
       { label: "Corbett", value: "India's Oldest Park" },
@@ -125,7 +139,11 @@ const slides = [
     title: "Common Designs & Motifs",
     subtitle: "Aipan & Textile Art Symbols",
     description: "Traditional motifs in Uttarakhand are deeply ritualistic, drawn freehand to invoke divine blessings, good fortune, and positive energy during festivals and weddings.",
-    image: "/assets/images/culture_aipan.png",
+    images: [
+      "/images/aipan-wheel.png",
+      "/images/aipan-border.png",
+      "/images/pichora-swastika-motif.png"
+    ],
     accentColor: "#b23b2b",
     facts: [
       { label: "Paint Medium", value: "Rice Paste & Geru Red" },
@@ -144,7 +162,12 @@ const slides = [
     title: "Crafts & Architecture",
     subtitle: "Pahadi Wood, Bamboo & Copper",
     description: "Indigenous crafts reflect the resourcefulness of mountain communities, utilizing local wood, metals, clay, and bamboo for daily utility and structural engineering.",
-    image: "/assets/images/culture_aipan.png",
+    images: [
+      "/images/pathali-house.png",
+      "/images/tamta-copper-artisans.png",
+      "/images/ringaal-bamboo-basket.png",
+      "/images/terracotta-clay-tea-set.png"
+    ],
     accentColor: "#465a65",
     facts: [
       { label: "Bamboo", value: "Flexible Ringaal dwarf" },
@@ -163,7 +186,12 @@ const slides = [
     title: "Textile, Dance & Music",
     subtitle: "Handlooms, Sword Dances & Jagars",
     description: "Uttarakhand's performing arts and handloom traditions celebrate community unity, folklore narratives, and spiritual connections with ancestral forces.",
-    image: "/assets/images/culture_aipan.png",
+    images: [
+      "/images/chholiya-sword-dance.png",
+      "/images/bhotia-weaving-loom.png",
+      "/images/hudka-folk-drum.png",
+      "/images/traditional-nath-bride.png"
+    ],
     accentColor: "#b23b2b",
     facts: [
       { label: "Sword Dance", value: "Chholiya Rajput Martial" },
@@ -189,7 +217,11 @@ const slides = [
     title: "Festivals & Seasonal Events",
     subtitle: "Monsoon Seeds & Spring Wildflowers",
     description: "Community festivals celebrate agricultural cycles, seasonal shifts, family bonds, and environmental conservation in the high Himalayan villages.",
-    image: "/assets/images/culture_aipan.png",
+    images: [
+      "/images/harela-saplings.png",
+      "/images/butter-festival-dayara-bugyal.png",
+      "/images/monsoon-flowers-decor.png"
+    ],
     accentColor: "#6b3459",
     facts: [
       { label: "Monsoon Harela", value: "Monsoon Sowing & Trees" },
@@ -208,7 +240,12 @@ const slides = [
     title: "Sacred Temples",
     subtitle: "Kedarnath, Badrinath & Yamunotri",
     description: "The historic spiritual core of the Himalayas. These high-altitude temples have stood for centuries, exhibiting advanced stone engineering adapted specifically to extreme mountain hazards.",
-    image: "/assets/images/spiritual_char_dham.png",
+    images: [
+      "/images/temple-kedarnath-snow.png",
+      "/images/temple-badrinath-facade.png",
+      "/images/temple-yamunotri-spire.png",
+      "/images/temple-gangotri-front.png"
+    ],
     accentColor: "#d4af37",
     facts: [
       { label: "Kedarnath stone", value: "Interlocking Grey Granite" },
@@ -234,7 +271,11 @@ const slides = [
     title: "UNESCO Heritage Sites",
     subtitle: "Biosphere Sanctuaries & Masked Dramas",
     description: "Uttarakhand hosts three UNESCO-recognized heritage items, highlighting the state's global ecological importance and preserved performing art traditions.",
-    image: "/assets/images/valley_of_flowers.png",
+    images: [
+      "/images/himalayan-blue-poppy.png",
+      "/images/ramman-theater-actors.png",
+      "/images/jageshwar-dham-temples.png"
+    ],
     accentColor: "#2c5e3b",
     facts: [
       { label: "Nanda Devi", value: "UNESCO Site 1988" },
@@ -253,7 +294,12 @@ const slides = [
     title: "Icons & Cinema Vistas",
     subtitle: "Eco-Pioneers, Heroes & Scenic Backdrops",
     description: "Uttarakhand has birthed historic national security leaders, legendary poets, and environmental champions, serving as an iconic backdrop for Indian cinema.",
-    image: "/assets/images/adventure_auli.png",
+    images: [
+      "/images/movie-poster-kedarnath.png",
+      "/images/movie-poster-lakshya.png",
+      "/images/personality-sunderlal-bahuguna.png",
+      "/images/personality-gaura-devi.png"
+    ],
     accentColor: "#a05a2c",
     facts: [
       { label: "Chipko Leaders", value: "Bahuguna & Gaura Devi" },
