@@ -135,7 +135,6 @@ body {
   opacity: 0.9;
 }
 
-/* Left Pane: Content details (Floating manuscript page) */
 .content-pane {
   width: 58%;
   height: 90%;
@@ -146,9 +145,25 @@ body {
   padding: clamp(1.5rem, 4vh, 3rem) clamp(2rem, 4vw, 3.5rem);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Align top to prevent clipping top content on scroll */
   position: relative;
   z-index: 5;
+  overflow-y: auto !important; /* Enable scrolling if text exceeds fixed pane height */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(178, 59, 43, 0.25) transparent;
+}
+
+.content-pane::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content-pane::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content-pane::-webkit-scrollbar-thumb {
+  background-color: rgba(178, 59, 43, 0.25);
+  border-radius: 10px;
 }
 
 .slide-subtitle {
@@ -310,14 +325,14 @@ body {
   box-sizing: border-box !important;
 }
 
-/* Arrange 2 images side-by-side horizontally */
+/* Arrange 2 images side-by-side horizontally (much smaller sizing to prevent taking up too much space) */
 .media-pane.collage-mode.count-2 {
   flex-direction: row !important;
 }
 
 .media-pane.collage-mode.count-2 .collage-photo {
-  max-width: 48% !important;
-  max-height: 90% !important;
+  max-width: 38% !important; /* Smaller size */
+  max-height: 80% !important;
 }
 
 .media-pane.collage-mode.count-2 .collage-photo.photo-pos-1 {
@@ -328,20 +343,20 @@ body {
   transform: rotate(1.5deg) !important;
 }
 
-/* Arrange 3 or 4 images stacked vertically */
+/* Arrange 3 or 4 images stacked vertically (much smaller sizing to prevent taking up too much space) */
 .media-pane.collage-mode.count-3,
 .media-pane.collage-mode.count-4 {
   flex-direction: column !important;
 }
 
 .media-pane.collage-mode.count-3 .collage-photo {
-  max-height: 29% !important;
-  max-width: 90% !important;
+  max-height: 25% !important; /* Smaller size */
+  max-width: 80% !important;
 }
 
 .media-pane.collage-mode.count-4 .collage-photo {
-  max-height: 22% !important;
-  max-width: 90% !important;
+  max-height: 18% !important; /* Smaller size */
+  max-width: 80% !important;
 }
 
 .media-pane.collage-mode .collage-photo {
@@ -604,12 +619,15 @@ body {
   }
 
   .facts-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
     gap: 0.5rem !important;
     margin-bottom: 1.25rem !important;
   }
   
   .fact-card {
+    flex: 1 1 calc(50% - 0.5rem) !important;
+    min-width: 100px !important;
     padding: 0.5rem !important;
   }
   
